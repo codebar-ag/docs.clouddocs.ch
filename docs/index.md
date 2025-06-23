@@ -1,17 +1,13 @@
-# Welcome to MkDocs
+# CloudDocs
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Welcome to the documentation portal.clouddocs.ch. Use the navigation to explore configuration options and features.
 
-## Commands
+## Table of Contents
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+- [Configuration](Configuration/Structure.md)
+    - [Tenant](Configuration/Tenant.md)
+    - [Client](Configuration/Client.md)
+    - [Sections](Configuration/Sections.md)
+        - [Documents](Configuration/Sections/Documents.md)
+        - [Tasks](Configuration/Sections/Tasks.md)
+        - [Uploads](Configuration/Sections/Uploads.md)
