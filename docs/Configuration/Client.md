@@ -1,3 +1,9 @@
-# Client Configuration
+# Client
 
-This page describes how to configure clients in CloudDocs. 
+## Overview
+
+This page describes the Client configuration. 
+
+## Configuration Options
+
+[Content to be added]

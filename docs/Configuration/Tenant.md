@@ -1,3 +1,9 @@
-# Tenant Configuration
+# Tenant
 
-This page describes how to configure tenants in CloudDocs. 
+## Overview
+
+This page describes the Tenant configuration. 
+
+## Configuration Options
+
+[Content to be added]

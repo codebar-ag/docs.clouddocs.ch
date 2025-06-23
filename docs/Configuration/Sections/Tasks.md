@@ -1,3 +1,9 @@
-# Tasks Section
+# TAsks Section
 
-This page describes the Tasks section within the configuration. 
+## Overview
+
+This page describes the Tasks section configuration. 
+
+## Configuration Options
+
+[Content to be added]

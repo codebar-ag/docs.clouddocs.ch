@@ -1,0 +1,8 @@
+/* Hide the default footer since we have a custom one */
+.rst-footer-buttons {
+    display: none;
+}
+
+.wy-nav-content {
+    padding-bottom: 0;
+} 

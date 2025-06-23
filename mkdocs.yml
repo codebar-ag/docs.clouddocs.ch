@@ -1,8 +1,20 @@
-site_name: clouddocs.ch
+site_name: docs.clouddocs.ch
+site_url: https://docs.clouddocs.ch
+site_description: "Documentation for portal.clouddocs.ch."
+site_author: paperflakes AG
 
 nav:
-  - Home: index.md
+  - Start: index.md
   - Setup:
+      - Create:
+          - Tenant: Create/Tenant.md
+          - Client: Create/Client.md
+          - User: Create/User.md
+          - Providers:
+              - S3: Create/Providers/S3.md
+              - DocuWare: Create/Providers/DocuWare.md
+              - MFile: Create/Providers/MFile.md
+          - Item Providers: Create/Item Providers.md
       - Configuration:
           - Tenant: Configuration/Tenant.md
           - Client: Configuration/Client.md
@@ -11,10 +23,24 @@ nav:
               - Tasks: Configuration/Sections/Tasks.md
               - Uploads: Configuration/Sections/Uploads.md
 
+
 theme:
   name: readthedocs
   custom_dir: custom_theme/
+  language: en
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
   copyright: "© paperflakes AG"
+
+markdown_extensions:
+  - admonition
+  - codehilite
 
 extra_css:
   - hidefooter.css
+
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
