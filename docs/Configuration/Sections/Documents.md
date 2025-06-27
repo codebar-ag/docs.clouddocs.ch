@@ -38,36 +38,9 @@ Below is the overall structure:
 }
 ```
 
-Each array (`entries`, `columns`, `filters`) contains field definitions as described below.
-
 ---
 
-## ✨ Field Properties
-
-### Common Field Properties
-
-All fields (infolist entries, table columns, filters) can define:
-
-| Property      | Type                 | Description                                                  |
-|---------------|----------------------|--------------------------------------------------------------|
-| `type`        | `string`             | Field type (see [Supported Types](#supported-types)).       |
-| `label`       | `object` or `string` | Field label (plain string or translations).                 |
-| `identifier`  | `string`             | Unique field key (must match your data source).             |
-| `sortable`    | `boolean`            | *(Columns only)* Whether the column is sortable.            |
-| `multiple`    | `boolean`            | *(Filters only)* Whether multiple values can be selected.   |
-| `default`     | `array` or `object`  | *(Filters only)* Default selected values or range.          |
-
----
-
-## 📘 Supported Types
-
-| Type       | Usage             | Notes                                          |
-|------------|-------------------|------------------------------------------------|
-| `string`   | Columns, Filters  | Displays as plain text.                        |
-| `date`     | Columns, Filters  | Displays date in `d.m.Y` format.               |
-| `integer`  | Infolist          | Displays numeric values.                       |
-| `textarea` | Infolist          | Shows longer text fields.                      |
-| `select`   | Filters           | Renders dropdown with selectable options.      |
+> **Tip:** For details supported field types, filters, and label translations, see [Shared Configurations](./SharedConfigurations.md).
 
 ---
 
@@ -109,43 +82,7 @@ Defines **table columns** shown in the documents list.
 
 Defines **filters applied to the document list**.
 
-### Example
-
-```json
-"filters": [
-  {
-    "type": "select",
-    "label": {
-      "en_CH": "Type",
-      "de_CH": "Typ"
-    },
-    "default": ["Sonstiges", "contract"],
-    "multiple": true,
-    "identifier": "DOCUMENT_TYPE"
-  },
-  {
-    "type": "date",
-    "label": "Date",
-    "default": {
-      "from": "2020-01-01",
-      "to": "2024-12-31"
-    },
-    "identifier": "DOCUMENT_DATE"
-  }
-]
-```
-
----
-
-### Filter Behavior
-
-#### Select Filters
-- If `multiple` is `true`, users can pick several options.
-- If `options` are omitted, unique values are auto-detected.
-
-#### Date Filters
-- Renders a date range picker.
-- Filters records between `from` and `to` dates.
+> See [SharedConfigurations.md](./SharedConfigurations.md) for filter types, behaviors, and examples.
 
 ---
 
@@ -183,24 +120,6 @@ Defines **read-only fields shown in the detail view** of a document.
   ]
 }
 ```
-
----
-
-## 🧩 Label Translation
-
-For `label`, you can provide either:
-
-- A **string** (e.g., `"Date"`)
-- An **object with translations**:
-
-```json
-"label": {
-  "en_CH": "Date",
-  "de_CH": "Datum"
-}
-```
-
-The user’s locale determines which label is shown.
 
 ---
 
@@ -292,3 +211,4 @@ Below is a **complete example JSON** combining all sections:
 - If `infolist.enabled` is `false`, the detail sidebar is hidden.
 - `sortable` is optional; default is `false`.
 - The `identifier` must match your data keys exactly.
+- For field type details and label translations, refer to [SharedConfigurations.md](./SharedConfigurations.md).

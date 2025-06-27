@@ -17,19 +17,23 @@ Here is the overall structure:
 
 ```json
 "uploads": {
-  "enabled": true,
-  "collapsed_by_default": true,
-  "form": {
-    "providable": {
-      "vault_guid": null
-    },
-    "fields": [ /* Array of upload fields */ ]
-  },
-  "rules": [ /* Array of validation rules */ ]
+"enabled": true,
+"collapsed_by_default": true,
+"form": {
+"providable": {
+"vault_guid": null
+},
+"fields": [ /* Array of upload fields */ ]
+},
+"rules": [ /* Array of validation rules */ ]
 }
 ```
 
 Each part is explained in detail below.
+
+---
+
+> **Tip:** For details supported field types, filters, and label translations, see [Shared Configurations](./SharedConfigurations.md).
 
 ---
 
@@ -66,43 +70,13 @@ The `providable` section contains **metadata about how files are stored**.
 
 Defines **metadata fields collected when uploading a file**.
 
-### Common Field Properties
+Each field must include:
 
-| Property     | Type                 | Description                                                            |
-|--------------|----------------------|------------------------------------------------------------------------|
-| `type`       | `string`             | Field type (see [Supported Types](#supported-types)).                 |
-| `label`      | `object` or `string` | Field label (plain string or translations).                           |
-| `identifier` | `string`             | Unique field key.                                                      |
-| `rules`      | `array`              | Validation rules (e.g., `["nullable", "max:254"]`).                    |
-| `value`      | `string` or `boolean`| Default value or `true` to auto-fill (e.g., `{{CLIENT_KEY}}`).         |
-
----
-
-## 📘 Supported Types
-
-| Type       | Usage             | Notes                                          |
-|------------|-------------------|------------------------------------------------|
-| `string`   | All fields        | Displays as a text input.                      |
-| `textarea` | All fields        | For longer text input.                         |
-| `hidden`   | All fields        | Hidden input field with a pre-filled value.    |
-
----
-
-## 🧩 Label Translation
-
-For `label`, you can use either:
-
-- A **string** (e.g., `"Subject"`)
-- An **object with translations**:
-
-```json
-"label": {
-  "en_CH": "Subject",
-  "de_CH": "Betrteff"
-}
-```
-
-The current locale determines which label is shown.
+- `type`
+- `label`
+- `identifier`
+- Optional `rules`
+- Optional `value`
 
 ---
 

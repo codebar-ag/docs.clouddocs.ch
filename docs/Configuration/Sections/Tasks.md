@@ -48,41 +48,16 @@ Below is the overall structure:
   },
   "index": {
     "table": {
-      "columns": [ /* Array of table columns */ ]
+      "columns": [ /* Array of table columns */ ],
+      "filters": [ /* Array of table filters */ ]
     }
   }
 }
 ```
 
-Each array (`entries`, `fields`, `columns`) contains field definitions, described in detail below.
-
 ---
 
-## ✨ Field Properties
-
-### Common Field Properties
-
-Every field (infolist entry, form field, upload field, column) can define:
-
-| Property      | Type                 | Description                                                  |
-|---------------|----------------------|--------------------------------------------------------------|
-| `type`        | `string`             | Field type (see [Supported Types](#supported-types)).       |
-| `label`       | `object` or `string` | Field label (plain string or translations).                 |
-| `identifier`  | `string`             | Unique field key (matches your data source).                |
-| `rules`       | `array`              | *(Form/Upload only)* Validation rules (e.g., `["nullable","max:512"]`). |
-| `value`       | `string` or `boolean`| *(Upload only)* Default value or `true` to auto-fill.       |
-
----
-
-## 📘 Supported Types
-
-| Type       | Usage             | Notes                                          |
-|------------|-------------------|------------------------------------------------|
-| `string`   | All sections      | Displays as plain text or input field.         |
-| `textarea` | Form, Infolist    | For longer text, description, or comments.     |
-| `integer`  | Infolist, Columns | Displays as numeric value.                     |
-| `date`     | All sections      | Displays or edits date.                        |
-| `hidden`   | Upload fields     | Hidden field with static value.                |
+> **Tip:** For details supported field types, filters, and label translations, see [Shared Configurations](./SharedConfigurations.md).
 
 ---
 
@@ -194,17 +169,6 @@ Defines **editable fields** when updating a task (e.g., comment).
 
 Controls **file uploads associated with a task**.
 
-### Properties
-
-| Property              | Type     | Description                                  |
-|-----------------------|----------|----------------------------------------------|
-| `enabled`             | `boolean`| Whether uploads are enabled.                 |
-| `collapsed_by_default`| `boolean`| Whether upload form is collapsed by default. |
-| `form`                | `object` | Defines upload fields.                       |
-| `rules`               | `array`  | Validation rules for uploads.               |
-
----
-
 ### Example
 
 ```json
@@ -261,24 +225,6 @@ Controls **file uploads associated with a task**.
   ]
 }
 ```
-
----
-
-## 🧩 Label Translation
-
-For `label`, you can provide either:
-
-- A **string** (e.g., `"Subject"`)
-- An **object with translations**:
-
-```json
-"label": {
-  "en_CH": "Subject",
-  "de_CH": "Betrteff"
-}
-```
-
-The user’s locale determines which label is shown.
 
 ---
 
@@ -397,6 +343,24 @@ Below is a **complete example JSON** combining all sections:
           "label": "Deadline",
           "identifier": "DEADLINE_DATE"
         }
+      ],
+      "filters": [
+        {
+          "type": "select",
+          "label": "Type",
+          "default": ["Sonstiges", "contract"],
+          "multiple": true,
+          "identifier": "DOCUMENT_TYPE"
+        },
+        {
+          "type": "date",
+          "label": "Date",
+          "default": {
+            "from": "2020-01-01",
+            "to": "2024-12-31"
+          },
+          "identifier": "DOCUMENT_DATE"
+        }
       ]
     }
   }
@@ -409,4 +373,5 @@ Below is a **complete example JSON** combining all sections:
 
 - If `uploads.enabled` is `false`, the upload section is hidden.
 - If a `form` field has validation `rules`, they apply when saving.
-- The `identifier` must exactly match the data keys.
+- The `identifier` must exactly match your data keys.
+- For supported field types, filters, and label translations, see [Shared Configurations](./SharedConfigurations.md).
