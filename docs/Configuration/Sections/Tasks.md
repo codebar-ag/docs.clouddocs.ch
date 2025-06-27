@@ -57,7 +57,7 @@ Below is the overall structure:
 
 ---
 
-> **Tip:** For details supported field types, filters, and label translations, see [Shared Configurations](./SharedConfigurations.md).
+> **Tip:** For supported field types, filters, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).
 
 ---
 
@@ -374,4 +374,4 @@ Below is a **complete example JSON** combining all sections:
 - If `uploads.enabled` is `false`, the upload section is hidden.
 - If a `form` field has validation `rules`, they apply when saving.
 - The `identifier` must exactly match your data keys.
-- For supported field types, filters, and label translations, see [Shared Configurations](./SharedConfigurations.md).
+- For supported field types, filters, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).

@@ -52,10 +52,10 @@ The `filters` array in `index.table` is **supported for all index tables**, rega
 
 **Labels** (`label`) support multilingual configurations:
 
-| Format         | Example                                  |
-|----------------|------------------------------------------|
-| String         | `"label": "Subject"`                    |
-| Translations   | `"label": { "en_CH": "Subject", "de_CH": "Betrteff" }` |
+| Format       | Example                                                |
+|--------------|--------------------------------------------------------|
+| String       | `"label": "Subject"`                                   |
+| Translations | `"label": { "en_CH": "Subject", "de_CH": "Betrteff" }` |
 
 **How it works:**
 - The application selects the label matching the user’s locale.
@@ -67,16 +67,16 @@ The `filters` array in `index.table` is **supported for all index tables**, rega
 
 Most field definitions—whether for **columns**, **filters**, **infolist entries**, or **form fields**—support the following properties:
 
-| Property      | Type                 | Description                                                |
-|---------------|----------------------|------------------------------------------------------------|
-| `type`        | `string`             | Field type (see below).                                   |
-| `label`       | `string` or `object` | Field label (plain string or translations).              |
-| `identifier`  | `string`             | Unique field key (must match your data source).          |
-| `sortable`    | `boolean`            | *(Columns only)* Enable sorting.                          |
-| `multiple`    | `boolean`            | *(Select filters only)* Allow multiple selections.       |
-| `default`     | `array` or `object`  | *(Filters only)* Default selected values or ranges.      |
-| `rules`       | `array`              | *(Forms/Uploads only)* Validation rules.                 |
-| `value`       | `string` or `boolean`| *(Forms/Uploads only)* Default value or `true` to auto-fill. |
+| Property     | Type                  | Description                                                  |
+|--------------|-----------------------|--------------------------------------------------------------|
+| `type`       | `string`              | Field type (see below).                                      |
+| `label`      | `string` or `object`  | Field label (plain string or translations).                  |
+| `identifier` | `string`              | Unique field key (must match your data source).              |
+| `sortable`   | `boolean`             | *(Columns only)* Enable sorting.                             |
+| `multiple`   | `boolean`             | *(Select filters only)* Allow multiple selections.           |
+| `default`    | `array` or `object`   | *(Filters only)* Default selected values or ranges.          |
+| `rules`      | `array`               | *(Forms/Uploads only)* Validation rules.                     |
+| `value`      | `string` or `boolean` | *(Forms/Uploads only)* Default value or `true` to auto-fill. |
 
 ---
 
@@ -84,14 +84,14 @@ Most field definitions—whether for **columns**, **filters**, **infolist entrie
 
 Below is the list of supported `type` values across all sections:
 
-| Type       | Where Used                | Notes                                      |
-|------------|---------------------------|--------------------------------------------|
-| `string`   | Columns, Filters, Forms   | Standard text.                             |
-| `integer`  | Columns, Infolist         | Numeric values.                            |
-| `date`     | Columns, Filters, Infolist| Dates formatted as `d.m.Y`.                |
+| Type       | Where Used                 | Notes                                      |
+|------------|----------------------------|--------------------------------------------|
+| `string`   | Columns, Filters, Forms    | Standard text.                             |
+| `integer`  | Columns, Infolist          | Numeric values.                            |
+| `date`     | Columns, Filters, Infolist | Dates formatted as `d.m.Y`.                |
 | `select`   | Filters                    | Dropdown selection.                        |
-| `textarea` | Infolist, Forms           | Longer text (description, comments).       |
-| `hidden`   | Forms, Uploads            | Hidden field with static or dynamic value. |
+| `textarea` | Infolist, Forms            | Longer text (description, comments).       |
+| `hidden`   | Forms, Uploads             | Hidden field with static or dynamic value. |
 
 ---
 
@@ -105,6 +105,103 @@ Below is the list of supported `type` values across all sections:
 
 - **Default Filter Values**  
   Filters with a `default` are pre-selected when the page loads.
+
+---
+
+## ✅ Validation Rules
+
+Validation rules are used in:
+
+- `form.fields.rules`
+- `uploads.rules`
+
+All rules must be written as **plain strings**.
+
+---
+
+### 📘 Supported Validation Rules
+
+Below is a **list of supported validation rules** you can include:
+
+✅ **Presence & Nullability**
+- `"required"`
+- `"nullable"`
+- `"sometimes"`
+- `"present"`
+
+✅ **Strings & Format**
+- `"string"`
+- `"email"`
+- `"url"`
+- `"uuid"`
+- `"ip"`
+- `"ipv4"`
+- `"ipv6"`
+- `"json"`
+- `"regex:/pattern/"`
+- `"starts_with:value1,value2"`
+- `"ends_with:value1,value2"`
+
+✅ **Numbers**
+- `"numeric"`
+- `"integer"`
+- `"decimal:x"`
+- `"digits:value"`
+- `"digits_between:min,max"`
+- `"min:value"`
+- `"max:value"`
+- `"between:min,max"`
+
+✅ **Dates**
+- `"date"`
+- `"before:YYYY-MM-DD"`
+- `"before_or_equal:YYYY-MM-DD"`
+- `"after:YYYY-MM-DD"`
+- `"after_or_equal:YYYY-MM-DD"`
+- `"date_equals:YYYY-MM-DD"`
+
+✅ **Arrays**
+- `"array"`
+- `"distinct"`
+
+✅ **Inclusion**
+- `"in:value1,value2"`
+- `"not_in:value1,value2"`
+- `"in_array:another_field"`
+
+✅ **Booleans**
+- `"boolean"`
+- `"accepted"`
+- `"declined"`
+
+✅ **Files**
+*(if applicable in your implementation)*
+- `"file"`
+- `"image"`
+- `"mimes:jpg,png,pdf"`
+- `"mimetypes:application/pdf"`
+- `"size:value"`
+- `"max:value"`
+- `"min:value"`
+
+---
+
+### 🪧 Notes
+
+- All rules **must be plain string values** exactly as shown.
+- You can **combine multiple rules** in an array:
+
+```json
+"rules": ["nullable", "string", "max:254"]
+```
+
+- For date rules like `after` or `before`, supply the date as a **fixed string**:
+
+```json
+"rules": ["date", "after:2024-01-01"]
+```
+
+- **Dynamic expressions or code-based rules are not supported** (e.g., generating dates in code).
 
 ---
 

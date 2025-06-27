@@ -40,7 +40,7 @@ Below is the overall structure:
 
 ---
 
-> **Tip:** For details supported field types, filters, and label translations, see [Shared Configurations](./SharedConfigurations.md).
+> **Tip:** For supported field types, filters, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).
 
 ---
 
@@ -211,4 +211,4 @@ Below is a **complete example JSON** combining all sections:
 - If `infolist.enabled` is `false`, the detail sidebar is hidden.
 - `sortable` is optional; default is `false`.
 - The `identifier` must match your data keys exactly.
-- For field type details and label translations, refer to [SharedConfigurations.md](./SharedConfigurations.md).
+- For supported field types, filters, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).

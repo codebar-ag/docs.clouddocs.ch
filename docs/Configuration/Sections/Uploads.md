@@ -33,18 +33,18 @@ Each part is explained in detail below.
 
 ---
 
-> **Tip:** For details supported field types, filters, and label translations, see [Shared Configurations](./SharedConfigurations.md).
+> **Tip:** For details supported field types, filters, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).
 
 ---
 
 ## ✨ Top-Level Properties
 
-| Property               | Type       | Description                                                           |
-|------------------------|------------|-----------------------------------------------------------------------|
-| `enabled`              | `boolean`  | Whether the uploads section is shown.                                |
-| `collapsed_by_default` | `boolean`  | Whether the upload form is collapsed initially.                      |
-| `form`                 | `object`   | Defines the form fields used when uploading files.                   |
-| `rules`                | `array`    | Validation rules applied to the uploaded files array.                |
+| Property               | Type      | Description                                           |
+|------------------------|-----------|-------------------------------------------------------|
+| `enabled`              | `boolean` | Whether the uploads section is shown.                 |
+| `collapsed_by_default` | `boolean` | Whether the upload form is collapsed initially.       |
+| `form`                 | `object`  | Defines the form fields used when uploading files.    |
+| `rules`                | `array`   | Validation rules applied to the uploaded files array. |
 
 ---
 
@@ -52,9 +52,9 @@ Each part is explained in detail below.
 
 The `providable` section contains **metadata about how files are stored**.
 
-| Property     | Type       | Description                                    |
-|--------------|------------|------------------------------------------------|
-| `vault_guid` | `string`   | Optional GUID of the vault to use for storage.|
+| Property     | Type     | Description                                    |
+|--------------|----------|------------------------------------------------|
+| `vault_guid` | `string` | Optional GUID of the vault to use for storage. |
 
 *Example:*
 
@@ -203,4 +203,4 @@ Below is a **complete example `uploads` configuration**:
 - If `enabled` is `false`, the upload UI will not be displayed.
 - All `identifier` values must match your expected data keys.
 - Hidden fields (`hidden`) are typically used to pass system metadata automatically.
-- Validation `rules` follow the same format as Laravel validation.
+- For supported field types, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).
