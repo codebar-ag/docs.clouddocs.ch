@@ -17,15 +17,15 @@ Here is the overall structure:
 
 ```json
 "uploads": {
-  "enabled": true,
-  "collapsed_by_default": true,
-  "form": {
-    "providable": {
-      "vault_guid": null
-    },
-    "fields": [ /* Array of upload fields */ ]
-  },
-  "rules": [ /* Array of validation rules */ ]
+"enabled": true,
+"collapsed_by_default": true,
+"form": {
+"providable": {
+"vault_guid": null
+},
+"fields": [ /* Array of upload fields */ ]
+},
+"rules": [ /* Array of validation rules */ ]
 }
 ```
 
@@ -33,14 +33,18 @@ Each part is explained in detail below.
 
 ---
 
+> **Tip:** For details supported field types, filters, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).
+
+---
+
 ## ✨ Top-Level Properties
 
-| Property               | Type       | Description                                                           |
-|------------------------|------------|-----------------------------------------------------------------------|
-| `enabled`              | `boolean`  | Whether the uploads section is shown.                                |
-| `collapsed_by_default` | `boolean`  | Whether the upload form is collapsed initially.                      |
-| `form`                 | `object`   | Defines the form fields used when uploading files.                   |
-| `rules`                | `array`    | Validation rules applied to the uploaded files array.                |
+| Property               | Type      | Description                                           |
+|------------------------|-----------|-------------------------------------------------------|
+| `enabled`              | `boolean` | Whether the uploads section is shown.                 |
+| `collapsed_by_default` | `boolean` | Whether the upload form is collapsed initially.       |
+| `form`                 | `object`  | Defines the form fields used when uploading files.    |
+| `rules`                | `array`   | Validation rules applied to the uploaded files array. |
 
 ---
 
@@ -48,9 +52,9 @@ Each part is explained in detail below.
 
 The `providable` section contains **metadata about how files are stored**.
 
-| Property     | Type       | Description                                    |
-|--------------|------------|------------------------------------------------|
-| `vault_guid` | `string`   | Optional GUID of the vault to use for storage.|
+| Property     | Type     | Description                                    |
+|--------------|----------|------------------------------------------------|
+| `vault_guid` | `string` | Optional GUID of the vault to use for storage. |
 
 *Example:*
 
@@ -66,43 +70,13 @@ The `providable` section contains **metadata about how files are stored**.
 
 Defines **metadata fields collected when uploading a file**.
 
-### Common Field Properties
+Each field must include:
 
-| Property     | Type                 | Description                                                            |
-|--------------|----------------------|------------------------------------------------------------------------|
-| `type`       | `string`             | Field type (see [Supported Types](#supported-types)).                 |
-| `label`      | `object` or `string` | Field label (plain string or translations).                           |
-| `identifier` | `string`             | Unique field key.                                                      |
-| `rules`      | `array`              | Validation rules (e.g., `["nullable", "max:254"]`).                    |
-| `value`      | `string` or `boolean`| Default value or `true` to auto-fill (e.g., `{{CLIENT_KEY}}`).         |
-
----
-
-## 📘 Supported Types
-
-| Type       | Usage             | Notes                                          |
-|------------|-------------------|------------------------------------------------|
-| `string`   | All fields        | Displays as a text input.                      |
-| `textarea` | All fields        | For longer text input.                         |
-| `hidden`   | All fields        | Hidden input field with a pre-filled value.    |
-
----
-
-## 🧩 Label Translation
-
-For `label`, you can use either:
-
-- A **string** (e.g., `"Subject"`)
-- An **object with translations**:
-
-```json
-"label": {
-  "en_CH": "Subject",
-  "de_CH": "Betrteff"
-}
-```
-
-The current locale determines which label is shown.
+- `type`
+- `label`
+- `identifier`
+- Optional `rules`
+- Optional `value`
 
 ---
 
@@ -229,4 +203,4 @@ Below is a **complete example `uploads` configuration**:
 - If `enabled` is `false`, the upload UI will not be displayed.
 - All `identifier` values must match your expected data keys.
 - Hidden fields (`hidden`) are typically used to pass system metadata automatically.
-- Validation `rules` follow the same format as Laravel validation.
+- For supported field types, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).
