@@ -17,40 +17,40 @@ Here is the overall structure:
 
 ```json
 "uploads": {
-  "enabled": true,
-  "collapsed_by_default": true,
-  "form": {
-    "providable": {
-      "vault_guid": null
-    },
-    "fields": [ /* Array of upload fields */ ]
-  },
-  "rules": [ /* Array of validation rules */ ]
+"enabled": true,
+"collapsed_by_default": true,
+"form": {
+"providable": {
+"vault_guid": null
+},
+"fields": [ /* Upload fields */ ]
+},
+"rules": [ /* Validation rules */ ]
 }
 ```
 
 ---
 
-## Top-Level Properties
+## Properties
 
-| Property               | Type      | Description                                           |
-|------------------------|-----------|-------------------------------------------------------|
-| `enabled`              | `boolean` | Whether the uploads section is shown.                 |
-| `collapsed_by_default` | `boolean` | Whether the upload form is collapsed initially.       |
-| `form`                 | `object`  | Defines the form fields used when uploading files.    |
-| `rules`                | `array`   | Validation rules applied to the uploaded files array. |
+| Property               | Type      | Description                                     |
+|------------------------|-----------|-------------------------------------------------|
+| `enabled`              | `boolean` | Whether the uploads section is shown.           |
+| `collapsed_by_default` | `boolean` | Whether the upload form is collapsed initially. |
+| `form`                 | `object`  | Upload form configuration.                      |
+| `rules`                | `array`   | Validation rules applied to the uploaded files. |
 
 ---
 
-## `form.providable`
+# `form.providable`
 
 Metadata about how files are stored.
 
-| Property     | Type     | Description                                    |
-|--------------|----------|------------------------------------------------|
-| `vault_guid` | `string` | Optional GUID of the vault to use for storage. |
+| Property     | Type     | Description                          |
+|--------------|----------|--------------------------------------|
+| `vault_guid` | `string` | Optional GUID of the vault to use.   |
 
-Example:
+**Example:**
 
 ```json
 "providable": {
@@ -60,56 +60,41 @@ Example:
 
 ---
 
-## `form.fields`
+# Upload Fields Configuration
 
 Defines **metadata fields collected when uploading a file**.
 
-### Common Field Properties
+## Field Properties
+
+Each item in `fields` supports:
 
 | Property     | Type                  | Description                                 |
 |--------------|-----------------------|---------------------------------------------|
-| `type`       | `string`              | Field type (see Supported Field Types).     |
+| `type`       | `string`              | Field type (see **Supported Field Types**). |
 | `label`      | `string` or `object`  | Field label (plain string or translations). |
 | `identifier` | `string`              | Unique field key.                           |
-| `rules`      | `array`               | Validation rules.                           |
+| `rules`      | `array`               | Validation rules applied to the field.      |
 | `value`      | `string` or `boolean` | Default value or `true` to auto-fill.       |
 
 ---
 
 ## Supported Field Types
 
-| Type       | Notes                                      |
-|------------|--------------------------------------------|
-| `string`   | Text input field.                          |
-| `textarea` | Multiline text input.                      |
-| `hidden`   | Hidden field with static or dynamic value. |
+| Type       | Notes                    |
+|------------|--------------------------|
+| `string`   | Text.                    |
+| `text`     | Text.                    |
+| `textarea` | Multiline Text.          |
+| `integer`  | Numeric.                 |
+| `numeric`  | Numeric.                 |
+| `date`     | Date `d.m.Y`.            |
+| `dateTime` | Date Time `d.m.Y H:i:s`. |
+| `time`     | Time `H:i:s`.            |
+| `hidden`   | Hidden Field.            |
 
 ---
 
-## Label Translation
-
-Labels support translations:
-
-Example string:
-
-```json
-"label": "Subject"
-```
-
-Example translations:
-
-```json
-"label": {
-  "en_CH": "Subject",
-  "de_CH": "Betreff"
-}
-```
-
-The current locale determines which label is shown.
-
----
-
-## Upload Field Example
+## Upload Fields Example
 
 ```json
 "fields": [
@@ -133,34 +118,25 @@ The current locale determines which label is shown.
     "rules": [],
     "value": "{{CLIENT_KEY}}",
     "identifier": "CLIENT_KEY"
+  },
+  {
+    "type": "hidden",
+    "label": "UUID",
+    "rules": [],
+    "value": "{{UUID}}",
+    "identifier": "UUID"
   }
 ]
 ```
 
 ---
 
-## `rules` (Upload Validation Rules)
+# Rules
 
-These rules validate the **whole uploaded files array**.
+We use [laravel validation rules](https://laravel.com/docs/12.x/validation#available-validation-rules) to define how uploaded files are validated.
 
-Supported rules:
 
-- `"required"`
-- `"nullable"`
-- `"min:value"`
-- `"max:value"`
-- `"array"`
-- `"size:value"`
-
-Example:
-
-```json
-"rules": ["required", "min:1", "max:5"]
-```
-
----
-
-## Full Example Configuration
+# Full Example Configuration
 
 ```json
 "uploads": {
@@ -177,6 +153,20 @@ Example:
         "rules": ["nullable", "string", "max:254"],
         "value": true,
         "identifier": "TITLE"
+      },
+      {
+        "type": "textarea",
+        "label": "Comment",
+        "rules": ["nullable", "string", "max:512"],
+        "value": true,
+        "identifier": "COMMENT"
+      },
+      {
+        "type": "hidden",
+        "label": "Client Key",
+        "rules": [],
+        "value": "{{CLIENT_KEY}}",
+        "identifier": "CLIENT_KEY"
       }
     ]
   },
@@ -186,7 +176,8 @@ Example:
 
 ---
 
-## Additional Notes
+# Additional Notes
 
 - If `enabled` is `false`, the upload UI will not be displayed.
-- All `identifier` values must match your data keys.
+- All `identifier` values must match your data keys exactly.
+- Labels can be strings or translation objects. [See Translations Guide](../Translations.md).

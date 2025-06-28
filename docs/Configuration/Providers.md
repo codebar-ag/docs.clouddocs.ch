@@ -37,9 +37,17 @@ This guide describes how to **generate and configure the provider JSON file** fo
 ```json
 {
   "storage_path": "vault-uuid",
-  "files_filter_exclude": ["txt"],
-  "fields_filter": ["TITLE", "DOCUMENT_DATE"],
-  "section_fields_filter_exclude": ["CLIENT"],
+  "files_filter_exclude": [
+    "txt"
+  ],
+  "fields_filter": [
+    "TITLE",
+    "DOCUMENT_DATE",
+    "CLIENT"
+  ],
+  "section_fields_filter_exclude": [
+    "CLIENT"
+  ],
   "item_identifier": "DWDOCID",
   "target_identifier": "vault-uuid"
 }
@@ -52,7 +60,6 @@ This guide describes how to **generate and configure the provider JSON file** fo
 - Keep `fields_filter` minimal.
 - Use a stable `item_identifier`.
 - Make sure `target_identifier` matches your storage.
+- Make sure the values in `section_fields_filter_exclude` are also defined in `fields_filter`.
 
 ---
-
-Let me know if you’d like me to produce the **full Tasks Configuration text or customize further**!
