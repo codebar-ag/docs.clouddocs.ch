@@ -1,4 +1,4 @@
-# 📤 Uploads Configuration
+# Uploads Configuration
 
 This guide describes how to **generate and configure the JSON files** that define **file upload behavior** for sections such as tasks and documents.
 
@@ -10,34 +10,28 @@ Uploads configuration controls:
 
 ---
 
-## 🗂️ JSON File Structure
+## JSON File Structure
 
-The upload configuration is defined within the `show.uploads` section of your section JSON.  
+The upload configuration is defined within the `show.uploads` section of your JSON.  
 Here is the overall structure:
 
 ```json
 "uploads": {
-"enabled": true,
-"collapsed_by_default": true,
-"form": {
-"providable": {
-"vault_guid": null
-},
-"fields": [ /* Array of upload fields */ ]
-},
-"rules": [ /* Array of validation rules */ ]
+  "enabled": true,
+  "collapsed_by_default": true,
+  "form": {
+    "providable": {
+      "vault_guid": null
+    },
+    "fields": [ /* Array of upload fields */ ]
+  },
+  "rules": [ /* Array of validation rules */ ]
 }
 ```
 
-Each part is explained in detail below.
-
 ---
 
-> **Tip:** For details supported field types, filters, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).
-
----
-
-## ✨ Top-Level Properties
+## Top-Level Properties
 
 | Property               | Type      | Description                                           |
 |------------------------|-----------|-------------------------------------------------------|
@@ -48,15 +42,15 @@ Each part is explained in detail below.
 
 ---
 
-## 🗂️ `form.providable`
+## `form.providable`
 
-The `providable` section contains **metadata about how files are stored**.
+Metadata about how files are stored.
 
 | Property     | Type     | Description                                    |
 |--------------|----------|------------------------------------------------|
 | `vault_guid` | `string` | Optional GUID of the vault to use for storage. |
 
-*Example:*
+Example:
 
 ```json
 "providable": {
@@ -66,45 +60,70 @@ The `providable` section contains **metadata about how files are stored**.
 
 ---
 
-## 📝 `form.fields`
+## `form.fields`
 
 Defines **metadata fields collected when uploading a file**.
 
-Each field must include:
+### Common Field Properties
 
-- `type`
-- `label`
-- `identifier`
-- Optional `rules`
-- Optional `value`
+| Property     | Type                  | Description                                 |
+|--------------|-----------------------|---------------------------------------------|
+| `type`       | `string`              | Field type (see Supported Field Types).     |
+| `label`      | `string` or `object`  | Field label (plain string or translations). |
+| `identifier` | `string`              | Unique field key.                           |
+| `rules`      | `array`               | Validation rules.                           |
+| `value`      | `string` or `boolean` | Default value or `true` to auto-fill.       |
 
 ---
 
-## 🖥️ Upload Field Example
+## Supported Field Types
 
-Example configuration of upload fields:
+| Type       | Notes                                      |
+|------------|--------------------------------------------|
+| `string`   | Text input field.                          |
+| `textarea` | Multiline text input.                      |
+| `hidden`   | Hidden field with static or dynamic value. |
+
+---
+
+## Label Translation
+
+Labels support translations:
+
+Example string:
+
+```json
+"label": "Subject"
+```
+
+Example translations:
+
+```json
+"label": {
+  "en_CH": "Subject",
+  "de_CH": "Betreff"
+}
+```
+
+The current locale determines which label is shown.
+
+---
+
+## Upload Field Example
 
 ```json
 "fields": [
   {
     "type": "string",
     "label": "Subject",
-    "rules": [
-      "nullable",
-      "string",
-      "max:254"
-    ],
+    "rules": ["nullable", "string", "max:254"],
     "value": true,
     "identifier": "TITLE"
   },
   {
     "type": "textarea",
     "label": "Comment",
-    "rules": [
-      "nullable",
-      "string",
-      "max:512"
-    ],
+    "rules": ["nullable", "string", "max:512"],
     "value": true,
     "identifier": "COMMENT"
   },
@@ -114,44 +133,34 @@ Example configuration of upload fields:
     "rules": [],
     "value": "{{CLIENT_KEY}}",
     "identifier": "CLIENT_KEY"
-  },
-  {
-    "type": "hidden",
-    "label": "UUID",
-    "rules": [],
-    "value": "{{UUID}}",
-    "identifier": "UUID"
   }
 ]
 ```
 
 ---
 
-## ✅ `rules` (Upload Validation Rules)
+## `rules` (Upload Validation Rules)
 
-These validation rules apply to the **whole uploaded files array**.
+These rules validate the **whole uploaded files array**.
 
-### Example
+Supported rules:
+
+- `"required"`
+- `"nullable"`
+- `"min:value"`
+- `"max:value"`
+- `"array"`
+- `"size:value"`
+
+Example:
 
 ```json
-"rules": [
-  "required",
-  "min:1",
-  "max:5"
-]
+"rules": ["required", "min:1", "max:5"]
 ```
-
-**Behavior:**
-
-- `required`: User must upload at least one file.
-- `min:1`: Minimum 1 file required.
-- `max:5`: Maximum 5 files allowed.
 
 ---
 
-## 🛠️ Full Example Configuration
-
-Below is a **complete example `uploads` configuration**:
+## Full Example Configuration
 
 ```json
 "uploads": {
@@ -168,27 +177,6 @@ Below is a **complete example `uploads` configuration**:
         "rules": ["nullable", "string", "max:254"],
         "value": true,
         "identifier": "TITLE"
-      },
-      {
-        "type": "textarea",
-        "label": "Comment",
-        "rules": ["nullable", "string", "max:512"],
-        "value": true,
-        "identifier": "COMMENT"
-      },
-      {
-        "type": "hidden",
-        "label": "Client Key",
-        "rules": [],
-        "value": "{{CLIENT_KEY}}",
-        "identifier": "CLIENT_KEY"
-      },
-      {
-        "type": "hidden",
-        "label": "UUID",
-        "rules": [],
-        "value": "{{UUID}}",
-        "identifier": "UUID"
       }
     ]
   },
@@ -198,9 +186,7 @@ Below is a **complete example `uploads` configuration**:
 
 ---
 
-## 🪧 Additional Notes
+## Additional Notes
 
 - If `enabled` is `false`, the upload UI will not be displayed.
-- All `identifier` values must match your expected data keys.
-- Hidden fields (`hidden`) are typically used to pass system metadata automatically.
-- For supported field types, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).
+- All `identifier` values must match your data keys.

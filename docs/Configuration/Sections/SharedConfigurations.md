@@ -1,11 +1,11 @@
-# 🛠️ Shared Configuration Reference
+# Shared Configuration Reference
 
 This document describes **shared configuration features** used across all sections (Tasks, Documents, Uploads, etc.).  
 Use this as a reference when building or reviewing your configuration JSON files.
 
 ---
 
-## 📘 Universal `index.table.filters`
+## Universal `index.table.filters`
 
 The `filters` array in `index.table` is **supported for all index tables**, regardless of section type.
 
@@ -35,20 +35,42 @@ The `filters` array in `index.table` is **supported for all index tables**, rega
 ]
 ```
 
+### Example with Manual Options
+
+```json
+"filters": [
+  {
+    "type": "select",
+    "label": "Status",
+    "options": {
+      "Open": "Open",
+      "In_Progress": "In Progress",
+      "Closed": "Closed"
+    },
+    "multiple": false,
+    "identifier": "STATUS"
+  }
+]
+```
+
+This does not support translations, so use plain strings.
+
 ### Behavior
 
-✅ **Select Filters**
+**Select Filters**
 - If `multiple` is `true`, users can pick multiple options.
-- If `options` is omitted, unique values are detected automatically.
 - If `default` is provided, the filter is pre-filled.
+- If `options` is omitted, unique values are detected automatically using the `identifier`.
+- When using manual `options`, the left side is the value used to filter, and the right side is the label displayed in the dropdown.
+- Manual `options` are case-sensitive so ensure the left side value matches the records' data.
 
-✅ **Date Filters**
+**Date Filters**
 - Renders a `from` and `to` date range picker.
 - Filters records between the specified dates.
 
 ---
 
-## 🌍 Label Translation
+## Label Translation
 
 **Labels** (`label`) support multilingual configurations:
 
@@ -57,13 +79,17 @@ The `filters` array in `index.table` is **supported for all index tables**, rega
 | String       | `"label": "Subject"`                                   |
 | Translations | `"label": { "en_CH": "Subject", "de_CH": "Betrteff" }` |
 
+**Supported Languages:**
+- `en_CH` (Swiss-English)
+- `de_CH` (Swiss-German)
+
 **How it works:**
 - The application selects the label matching the user’s locale.
 - If no matching locale is found, it falls back to displaying the raw object.
 
 ---
 
-## ✨ Common Field Properties
+## Common Field Properties
 
 Most field definitions—whether for **columns**, **filters**, **infolist entries**, or **form fields**—support the following properties:
 
@@ -80,7 +106,7 @@ Most field definitions—whether for **columns**, **filters**, **infolist entrie
 
 ---
 
-## 🧩 Supported Field Types
+## Supported Field Types
 
 Below is the list of supported `type` values across all sections:
 
@@ -95,7 +121,7 @@ Below is the list of supported `type` values across all sections:
 
 ---
 
-## 📂 Default Behaviors
+## Default Behaviors
 
 - **Sorting**  
   If `sortable: true`, the column becomes sortable. For `date` columns, sorting uses the `STR_TO_DATE` function if stored as string.
@@ -108,7 +134,7 @@ Below is the list of supported `type` values across all sections:
 
 ---
 
-## ✅ Validation Rules
+## Validation Rules
 
 Validation rules are used in:
 
@@ -119,17 +145,17 @@ All rules must be written as **plain strings**.
 
 ---
 
-### 📘 Supported Validation Rules
+### Supported Validation Rules
 
 Below is a **list of supported validation rules** you can include:
 
-✅ **Presence & Nullability**
+**Presence & Nullability**
 - `"required"`
 - `"nullable"`
 - `"sometimes"`
 - `"present"`
 
-✅ **Strings & Format**
+**Strings & Format**
 - `"string"`
 - `"email"`
 - `"url"`
@@ -142,7 +168,7 @@ Below is a **list of supported validation rules** you can include:
 - `"starts_with:value1,value2"`
 - `"ends_with:value1,value2"`
 
-✅ **Numbers**
+**Numbers**
 - `"numeric"`
 - `"integer"`
 - `"decimal:x"`
@@ -152,7 +178,7 @@ Below is a **list of supported validation rules** you can include:
 - `"max:value"`
 - `"between:min,max"`
 
-✅ **Dates**
+**Dates**
 - `"date"`
 - `"before:YYYY-MM-DD"`
 - `"before_or_equal:YYYY-MM-DD"`
@@ -160,21 +186,21 @@ Below is a **list of supported validation rules** you can include:
 - `"after_or_equal:YYYY-MM-DD"`
 - `"date_equals:YYYY-MM-DD"`
 
-✅ **Arrays**
+**Arrays**
 - `"array"`
 - `"distinct"`
 
-✅ **Inclusion**
+**Inclusion**
 - `"in:value1,value2"`
 - `"not_in:value1,value2"`
 - `"in_array:another_field"`
 
-✅ **Booleans**
+**Booleans**
 - `"boolean"`
 - `"accepted"`
 - `"declined"`
 
-✅ **Files**
+**Files**
 *(if applicable in your implementation)*
 - `"file"`
 - `"image"`
@@ -186,7 +212,7 @@ Below is a **list of supported validation rules** you can include:
 
 ---
 
-### 🪧 Notes
+### Notes
 
 - All rules **must be plain string values** exactly as shown.
 - You can **combine multiple rules** in an array:
@@ -205,16 +231,16 @@ Below is a **list of supported validation rules** you can include:
 
 ---
 
-## 🪧 Best Practices
+## Best Practices
 
-✅ **Keep identifiers consistent**  
+**Keep identifiers consistent**  
 Always ensure your `identifier` values match the data keys returned by your backend.
 
-✅ **Avoid unused fields**  
+**Avoid unused fields**  
 Only define fields that will be rendered in your UI.
 
-✅ **Leverage translations**  
+**Leverage translations**  
 Use multilingual `label` objects to provide a localized experience.
 
-✅ **Validate uploads**  
+**Validate uploads**  
 Use `rules` on upload fields to enforce constraints (e.g., max length).
