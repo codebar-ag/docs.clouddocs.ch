@@ -82,7 +82,64 @@ Below is the overall structure:
 | `index.table.columns`                | `array`   | Array of table columns.                                              |
 | `index.table.filters`                | `array`   | Array of filters applied to the list.                                |
 
-> **Tip:** For supported field types, filters, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).
+---
+
+## Field Properties
+
+All field definitions—whether for columns, filters, infolist entries, or form fields—support the following properties:
+
+| Property     | Type                  | Description                                                  |
+|--------------|-----------------------|--------------------------------------------------------------|
+| `type`       | `string`              | Field type (see Supported Field Types below).                |
+| `label`      | `string` or `object`  | Field label (plain string or translations).                  |
+| `identifier` | `string`              | Unique field key.                                            |
+| `sortable`   | `boolean`             | *(Columns only)* Enable sorting.                             |
+| `multiple`   | `boolean`             | *(Select filters only)* Allow multiple selections.           |
+| `default`    | `array` or `object`   | *(Filters only)* Default selected values or ranges.          |
+| `rules`      | `array`               | *(Forms/Uploads only)* Validation rules.                     |
+| `value`      | `string` or `boolean` | *(Forms/Uploads only)* Default value or `true` to auto-fill. |
+
+---
+
+## Supported Field Types
+
+Below is the list of supported `type` values across all sections:
+
+| Type       | Where Used                 | Notes                                      |
+|------------|----------------------------|--------------------------------------------|
+| `string`   | Columns, Filters, Forms    | Standard text.                             |
+| `integer`  | Columns, Infolist          | Numeric values.                            |
+| `date`     | Columns, Filters, Infolist | Dates formatted as `d.m.Y`.                |
+| `select`   | Filters                    | Dropdown selection.                        |
+| `textarea` | Infolist, Forms            | Longer text (description, comments).       |
+| `hidden`   | Forms, Uploads             | Hidden field with static or dynamic value. |
+
+---
+
+## Label Translation
+
+Labels (`label`) support multilingual configurations:
+
+**String example:**
+
+```json
+"label": "Subject"
+```
+
+**Translation example:**
+
+```json
+"label": {
+  "en_CH": "Subject",
+  "de_CH": "Betreff"
+}
+```
+
+The application selects the label matching the user’s locale. If no matching locale is found, the raw object is displayed.
+
+Supported languages: `en_CH` (Swiss-English), `de_CH` (Swiss-German)
+
+---
 
 ---
 
@@ -126,7 +183,55 @@ Defines **table columns** shown in the tasks list.
 
 Defines **filters applied to the tasks list**.
 
-> See [Shared Configurations](./SharedConfigurations.md) for filter types, behaviors, and examples.
+### Example
+
+```json
+"filters": [
+  {
+    "type": "select",
+    "label": {
+      "en_CH": "Type",
+      "de_CH": "Typ"
+    },
+    "default": ["Sonstiges", "contract"],
+    "multiple": true,
+    "identifier": "DOCUMENT_TYPE"
+  },
+  {
+    "type": "date",
+    "label": "Date",
+    "default": {
+      "from": "2020-01-01",
+      "to": "2024-12-31"
+    },
+    "identifier": "DOCUMENT_DATE"
+  }
+]
+```
+
+#### Example with Manual Options
+
+```json
+{
+  "type": "select",
+  "label": "Status",
+  "options": {
+    "Open": "Open",
+    "In_Progress": "In Progress",
+    "Closed": "Closed"
+  },
+  "multiple": false,
+  "identifier": "STATUS"
+}
+```
+
+**Notes:**
+- If `multiple` is `true`, users can pick multiple options.
+- If `default` is provided, the filter is pre-filled.
+- If `options` is omitted, unique values are detected automatically using the `identifier`.
+- When using manual `options`, the left side is the value used to filter, and the right side is the label displayed in the dropdown.
+- Manual `options` are case-sensitive and do not support translations.
+- Date filters render a `from` and `to` date range picker and filter records between the specified dates.
 
 ---
 
@@ -202,7 +307,7 @@ Defines **editable fields** when updating a task (for example, a comment).
 
 Controls **file uploads associated with a task**.
 
-### Example
+### JSON Structure
 
 ```json
 "uploads": {
@@ -212,52 +317,105 @@ Controls **file uploads associated with a task**.
     "providable": {
       "vault_guid": null
     },
-    "fields": [
-      {
-        "type": "string",
-        "label": "Subject",
-        "rules": [
-          "nullable",
-          "string",
-          "max:254"
-        ],
-        "value": true,
-        "identifier": "TITLE"
-      },
-      {
-        "type": "textarea",
-        "label": "Comment",
-        "rules": [
-          "nullable",
-          "string",
-          "max:512"
-        ],
-        "value": true,
-        "identifier": "COMMENT"
-      },
-      {
-        "type": "hidden",
-        "label": "Client Key",
-        "rules": [],
-        "value": "{{CLIENT_KEY}}",
-        "identifier": "CLIENT_KEY"
-      },
-      {
-        "type": "hidden",
-        "label": "UUID",
-        "rules": [],
-        "value": "{{UUID}}",
-        "identifier": "UUID"
-      }
-    ]
+    "fields": [ /* Array of upload fields */ ]
   },
-  "rules": [
-    "required",
-    "min:1",
-    "max:5"
-  ]
+  "rules": [ /* Array of validation rules */ ]
 }
 ```
+
+### Top-Level Properties
+
+| Property               | Type      | Description                                           |
+|------------------------|-----------|-------------------------------------------------------|
+| `enabled`              | `boolean` | Whether the uploads section is shown.                |
+| `collapsed_by_default` | `boolean` | Whether the upload form is collapsed initially.      |
+| `form`                 | `object`  | Defines the form fields used when uploading files.   |
+| `rules`                | `array`   | Validation rules applied to the uploaded files array.|
+
+### `form.providable`
+
+Metadata about how files are stored.
+
+| Property     | Type     | Description                                    |
+|--------------|----------|------------------------------------------------|
+| `vault_guid` | `string` | Optional GUID of the vault to use for storage. |
+
+Example:
+
+```json
+"providable": {
+  "vault_guid": null
+}
+```
+
+### `form.fields`
+
+Defines **metadata fields collected when uploading a file**.
+
+#### Example
+
+```json
+"fields": [
+  {
+    "type": "string",
+    "label": "Subject",
+    "rules": ["nullable", "string", "max:254"],
+    "value": true,
+    "identifier": "TITLE"
+  },
+  {
+    "type": "textarea",
+    "label": "Comment",
+    "rules": ["nullable", "string", "max:512"],
+    "value": true,
+    "identifier": "COMMENT"
+  },
+  {
+    "type": "hidden",
+    "label": "Client Key",
+    "rules": [],
+    "value": "{{CLIENT_KEY}}",
+    "identifier": "CLIENT_KEY"
+  },
+  {
+    "type": "hidden",
+    "label": "UUID",
+    "rules": [],
+    "value": "{{UUID}}",
+    "identifier": "UUID"
+  }
+]
+```
+
+---
+
+## Validation Rules
+
+Validation rules are used in:
+- `form.fields.rules`
+- `uploads.rules`
+
+All rules must be written as **plain strings**.
+
+### Supported Validation Rules
+
+We use laravel validation so you can use any of [Laravel's Validation Rules](https://laravel.com/docs/12.x/validation#available-validation-rules)
+
+**Notes:**
+- All rules **must be plain string values** exactly as shown below.
+- You can **combine multiple rules** in an array:
+
+```json
+"rules": ["nullable", "string", "max:254"]
+```
+
+- For date rules like `after` or `before`, supply the date as a **fixed string**:
+
+```json
+"rules": ["date", "after:2024-01-01"]
+```
+
+- **Dynamic expressions or code-based rules are not supported** (e.g., generating dates in code).
 
 ---
 
@@ -386,6 +544,13 @@ Below is a **complete example JSON** combining all sections:
           "identifier": "DOCUMENT_TYPE"
         },
         {
+          "type": "select",
+          "label": "Subject",
+          "options": ["Welcome", "Task"],
+          "multiple": true,
+          "identifier": "TITLE"
+        },
+        {
           "type": "date",
           "label": "Date",
           "default": {
@@ -402,10 +567,11 @@ Below is a **complete example JSON** combining all sections:
 
 ---
 
+---
+
 ## Additional Notes
 
 - If `uploads.enabled` is `false`, the upload section is hidden.
 - `collapsed_by_default` controls whether sections start collapsed.
-- If a `form` field has validation `rules`, they apply when saving.
+- If a `form` or upload field has validation `rules`, they apply when saving.
 - The `identifier` must exactly match your data keys.
-- For supported field types, filters, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).
