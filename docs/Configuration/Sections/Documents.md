@@ -9,7 +9,7 @@
     * [Supported Field Types](#supported-field-types)
     * [Example](#example)
     * [Notes](#notes)
-    * [Index Section Configuration](#index-section-configuration)
+  * [Index Section Configuration](#index-section-configuration)
   * [Full Example](#full-example)
   * [Notes](#notes-1)
 <!-- TOC -->
@@ -108,7 +108,7 @@ Each item in `entries` supports:
 
 ---
 
-### Index Section Configuration
+## Index Section Configuration
 
 - See [Index Configuration](../Index.md) for details on the index section.
 
