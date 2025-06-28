@@ -2,16 +2,17 @@
 
 <!-- TOC -->
 * [Uploads Configuration](#uploads-configuration)
-  * [JSON File Structure](#json-file-structure)
-  * [Properties](#properties)
-* [`form.providable`](#formprovidable)
-* [Upload Fields Configuration](#upload-fields-configuration)
-  * [Field Properties](#field-properties)
-  * [Supported Field Types](#supported-field-types)
-  * [Upload Fields Example](#upload-fields-example)
-* [Rules](#rules)
-* [Full Example Configuration](#full-example-configuration)
-* [Additional Notes](#additional-notes)
+  * [Uploads Section Configuration](#uploads-section-configuration)
+    * [JSON File Structure](#json-file-structure)
+    * [Properties](#properties)
+      * [`form.providable`](#formprovidable)
+  * [Upload Fields Configuration](#upload-fields-configuration)
+    * [Field Properties](#field-properties)
+    * [Supported Field Types](#supported-field-types)
+    * [Upload Fields Example](#upload-fields-example)
+  * [Rules](#rules)
+  * [Full Example Configuration](#full-example-configuration)
+  * [Notes](#notes)
 <!-- TOC -->
 
 This guide describes how to **generate and configure the JSON files** that define **file upload behavior** for sections such as tasks and documents.
@@ -33,15 +34,15 @@ Here is the overall structure:
 
 ```json
 "uploads": {
-"enabled": true,
-"collapsed_by_default": true,
-"form": {
-"providable": {
-"vault_guid": null
-},
-"fields": [ /* Upload fields */ ]
-},
-"rules": [ /* Validation rules */ ]
+  "enabled": true,
+  "collapsed_by_default": true,
+  "form": {
+    "providable": {
+    "vault_guid": null
+  },
+  "fields": [ /* Upload fields */ ]
+  },
+  "rules": [ /* Validation rules */ ]
 }
 ```
 
@@ -58,7 +59,7 @@ Here is the overall structure:
 
 ---
 
-## `form.providable`
+#### `form.providable`
 
 Metadata about how files are stored.
 

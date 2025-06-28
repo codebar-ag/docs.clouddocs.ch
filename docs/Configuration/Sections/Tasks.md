@@ -3,22 +3,22 @@
 <!-- TOC -->
 * [Tasks Configuration](#tasks-configuration)
   * [Show Section Configuration](#show-section-configuration)
-    * [JSON Structure (`show`)](#json-structure-show)
-    * [Properties](#properties)
-  * [Infolist Configuration](#infolist-configuration)
     * [JSON Structure](#json-structure)
-    * [Properties](#properties-1)
-    * [Field Properties](#field-properties)
-    * [Supported Field Types](#supported-field-types)
-  * [Form Configuration](#form-configuration)
-    * [JSON Structure](#json-structure-1)
-    * [Properties](#properties-2)
-    * [Field Properties](#field-properties-1)
-    * [Supported Field Types](#supported-field-types-1)
-  * [Uploads Configuration](#uploads-configuration)
-    * [JSON Structure](#json-structure-2)
-    * [Properties](#properties-3)
-    * [Field Properties](#field-properties-2)
+    * [Properties](#properties)
+    * [Infolist Configuration](#infolist-configuration)
+      * [JSON Structure](#json-structure-1)
+      * [Properties](#properties-1)
+      * [Field Properties](#field-properties)
+      * [Supported Field Types](#supported-field-types)
+    * [Form Configuration](#form-configuration)
+      * [JSON Structure](#json-structure-2)
+      * [Properties](#properties-2)
+      * [Field Properties](#field-properties-1)
+      * [Supported Field Types](#supported-field-types-1)
+    * [Uploads Configuration](#uploads-configuration)
+      * [JSON Structure](#json-structure-3)
+      * [Properties](#properties-3)
+      * [Field Properties](#field-properties-2)
     * [Index Section Configuration](#index-section-configuration)
   * [Full Example](#full-example)
   * [Notes](#notes)
@@ -35,7 +35,7 @@ This guide describes how to **generate and configure the JSON files** used to de
 
 ## Show Section Configuration
 
-### JSON Structure (`show`)
+### JSON Structure
 
 ```json
 "show": {
@@ -62,11 +62,11 @@ This guide describes how to **generate and configure the JSON files** used to de
 
 ---
 
-## Infolist Configuration
+### Infolist Configuration
 
 Defines **read-only fields shown in the detail view sidebar**.
 
-### JSON Structure
+#### JSON Structure
 
 ```json
 "infolist": {
@@ -78,7 +78,7 @@ Defines **read-only fields shown in the detail view sidebar**.
 
 ---
 
-### Properties
+#### Properties
 
 | Property                             | Type      | Description                                       |
 |--------------------------------------|-----------|---------------------------------------------------|
@@ -88,7 +88,7 @@ Defines **read-only fields shown in the detail view sidebar**.
 
 ---
 
-### Field Properties
+#### Field Properties
 
 Each item in `entries` supports:
 
@@ -100,7 +100,7 @@ Each item in `entries` supports:
 
 ---
 
-### Supported Field Types
+#### Supported Field Types
 
 | Type       | Notes                    |
 |------------|--------------------------|
@@ -115,11 +115,11 @@ Each item in `entries` supports:
 
 ---
 
-## Form Configuration
+### Form Configuration
 
 Defines **editable fields when updating a task**.
 
-### JSON Structure
+#### JSON Structure
 
 ```json
 "form": {
@@ -130,7 +130,7 @@ Defines **editable fields when updating a task**.
 
 ---
 
-### Properties
+#### Properties
 
 | Property               | Type      | Description                              |
 |------------------------|-----------|------------------------------------------|
@@ -139,7 +139,7 @@ Defines **editable fields when updating a task**.
 
 ---
 
-### Field Properties
+#### Field Properties
 
 Each item in `fields` supports:
 
@@ -153,17 +153,17 @@ Each item in `fields` supports:
 
 ---
 
-### Supported Field Types
+#### Supported Field Types
 
 Same as Infolist.
 
 ---
 
-## Uploads Configuration
+### Uploads Configuration
 
 Controls **file uploads associated with a task**.
 
-### JSON Structure
+#### JSON Structure
 
 ```json
 "uploads": {
@@ -181,7 +181,7 @@ Controls **file uploads associated with a task**.
 
 ---
 
-### Properties
+#### Properties
 
 | Property               | Type      | Description                                     |
 |------------------------|-----------|-------------------------------------------------|
@@ -192,7 +192,7 @@ Controls **file uploads associated with a task**.
 
 ---
 
-### Field Properties
+#### Field Properties
 
 Same as Form.
 
