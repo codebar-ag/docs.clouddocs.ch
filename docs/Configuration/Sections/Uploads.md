@@ -160,38 +160,67 @@ We use [laravel validation rules](https://laravel.com/docs/12.x/validation#avail
 # Full Example Configuration
 
 ```json
-"uploads": {
-  "enabled": true,
-  "collapsed_by_default": true,
-  "form": {
-    "providable": {
-      "vault_guid": null
+{
+  "create": {
+    "form": {
+      "fields": [
+        {
+          "type": "select",
+          "label": {
+            "de_CH": "Date",
+            "en_CH": "Date"
+          },
+          "options": [
+            { "value": "2026", "label": "2026" },
+            { "value": "2025", "label": "2025" },
+            { "value": "2024", "label": "2024" }
+          ],
+          "value": "2025",
+          "rules": [
+            "required",
+            "string",
+            "in:2024,2025,2026",
+            "max:254"
+          ],
+          "identifier": "YEAR"
+        },
+        {
+          "type": "textarea",
+          "label": {
+            "de_CH": "Bemerkung",
+            "en_CH": "Description"
+          },
+          "rules": [
+            "required",
+            "string",
+            "max:756"
+          ],
+          "identifier": "DESCRIPTION"
+        },
+        {
+          "type": "hidden",
+          "label": "Client Identifier",
+          "rules": [],
+          "value": "CLIENT::IDENTIFIER",
+          "identifier": "CLIENT_KEY"
+        },
+        {
+          "type": "hidden",
+          "label": "UUID",
+          "rules": [],
+          "value": "USER_UPLOAD_REQUEST_FILE::UUID",
+          "identifier": "UUID"
+        }
+      ]
     },
-    "fields": [
-      {
-        "type": "string",
-        "label": "Subject",
-        "rules": ["nullable", "string", "max:254"],
-        "value": true,
-        "identifier": "TITLE"
-      },
-      {
-        "type": "textarea",
-        "label": "Comment",
-        "rules": ["nullable", "string", "max:512"],
-        "value": true,
-        "identifier": "COMMENT"
-      },
-      {
-        "type": "hidden",
-        "label": "Client Key",
-        "rules": [],
-        "value": "{{CLIENT_KEY}}",
-        "identifier": "CLIENT_KEY"
-      }
-    ]
-  },
-  "rules": ["required", "min:1", "max:5"]
+    "uploads": {
+      "rules": [
+        "required",
+        "min:1",
+        "max:5"
+      ]
+    }
+  }
 }
 ```
 
