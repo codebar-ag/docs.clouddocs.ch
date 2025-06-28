@@ -1,5 +1,18 @@
 ## Label Translation
 
+<!-- TOC -->
+  * [Label Translation](#label-translation)
+    * [String Example](#string-example)
+    * [Translation Object Example](#translation-object-example)
+    * [Supported Locales](#supported-locales)
+    * [Example Configuration](#example-configuration)
+      * [Documents Section](#documents-section)
+      * [Uploads Section](#uploads-section)
+      * [Tasks Section](#tasks-section)
+      * [Filters](#filters)
+      * [Tables](#tables)
+<!-- TOC -->
+
 Labels can be defined as:
 
 - A **plain string** (single language)
