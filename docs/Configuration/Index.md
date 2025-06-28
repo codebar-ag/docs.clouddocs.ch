@@ -5,17 +5,18 @@
 <!-- TOC -->
 * [Index Section Configuration](#index-section-configuration)
   * [JSON Structure (`index`)](#json-structure-index)
-    * [Columns Configuration](#columns-configuration)
-  * [Properties](#properties)
-  * [Field Properties](#field-properties)
-  * [Supported Field Types](#supported-field-types)
-  * [Example](#example)
-  * [Notes](#notes)
-* [Filters Configuration](#filters-configuration)
-  * [Properties](#properties-1)
-  * [Field Properties](#field-properties-1)
-  * [Supported Field Types](#supported-field-types-1)
-  * [Example](#example-1)
+  * [Columns Configuration](#columns-configuration)
+    * [Properties](#properties)
+    * [Field Properties](#field-properties)
+    * [Supported Field Types](#supported-field-types)
+    * [Example](#example)
+    * [Notes](#notes)
+  * [Filters Configuration](#filters-configuration)
+    * [Properties](#properties-1)
+    * [Field Properties](#field-properties-1)
+    * [Supported Field Types](#supported-field-types-1)
+    * [Example](#example-1)
+    * [Notes](#notes-1)
 <!-- TOC -->
 
 ## JSON Structure (`index`)
@@ -35,9 +36,9 @@
 
 ---
 
-### Columns Configuration
+## Columns Configuration
 
-## Properties
+### Properties
 
 | Property              | Type      | Description                     |
 |-----------------------|-----------|---------------------------------|
@@ -45,7 +46,7 @@
 
 ---
 
-## Field Properties
+### Field Properties
 
 Each item in `columns` supports:
 
@@ -58,7 +59,7 @@ Each item in `columns` supports:
 
 ---
 
-## Supported Field Types
+### Supported Field Types
 
 | Type       | Notes                    |
 |------------|--------------------------|
@@ -72,7 +73,7 @@ Each item in `columns` supports:
 
 ---
 
-## Example
+### Example
 
 ```json
 "columns": [
@@ -93,16 +94,16 @@ Each item in `columns` supports:
 
 ---
 
-## Notes
+### Notes
 
 - `sortable` is optional.
 - `identifier` must match data keys.
 
 ---
 
-# Filters Configuration
+## Filters Configuration
 
-## Properties
+### Properties
 
 | Property              | Type      | Description                     |
 |-----------------------|-----------|---------------------------------|
@@ -110,7 +111,7 @@ Each item in `columns` supports:
 
 ---
 
-## Field Properties
+### Field Properties
 
 Each item in `filters` supports:
 
@@ -125,7 +126,7 @@ Each item in `filters` supports:
 
 ---
 
-## Supported Field Types
+### Supported Field Types
 
 | Type       | Notes                    |
 |------------|--------------------------|
@@ -134,7 +135,7 @@ Each item in `filters` supports:
 
 ---
 
-## Example
+### Example
 
 ```json
 "filters": [
@@ -167,3 +168,12 @@ Each item in `filters` supports:
   }
 ]
 ```
+
+---
+
+### Notes
+
+- `identifier` must match data keys.
+- `options` is optional for `select` filters; if not provided, it will auto-fill from the database.
+- `multiple` allows selecting multiple values in the filter.
+- `default` can be a single value or an array for multiple selections or an object with `from` and `to` for date ranges.
