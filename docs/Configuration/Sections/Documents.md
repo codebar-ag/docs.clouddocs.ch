@@ -40,6 +40,22 @@ Below is the overall structure:
 
 ---
 
+## ✨ Top-Level Properties
+
+| Property                             | Type      | Description                                                          |
+|--------------------------------------|-----------|----------------------------------------------------------------------|
+| `show`                               | `object`  | Defines the **detail view configuration** for individual records.    |
+| `show.title_identifier`              | `string`  | Field used as the main title in the detail view.                     |
+| `show.subtitle_identifier`           | `string`  | Field used as the subtitle in the detail view.                       |
+| `show.infolist`                      | `object`  | Defines which fields are shown in the sidebar.                       |
+| `show.infolist.enabled`              | `boolean` | Whether the infolist sidebar is shown.                               |
+| `show.infolist.collapsed_by_default` | `boolean` | Whether the infolist starts collapsed.                               |
+| `show.infolist.entries`              | `array`   | Array of fields displayed in the infolist.                           |
+| `index`                              | `object`  | Defines the **list view configuration** (table columns and filters). |
+| `index.table`                        | `object`  | Table configuration object.                                          |
+| `index.table.columns`                | `array`   | Array of table columns.                                              |
+| `index.table.filters`                | `array`   | Array of filters applied to the list.                                |
+
 > **Tip:** For supported field types, filters, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).
 
 ---
@@ -82,7 +98,7 @@ Defines **table columns** shown in the documents list.
 
 Defines **filters applied to the document list**.
 
-> See [SharedConfigurations.md](./SharedConfigurations.md) for filter types, behaviors, and examples.
+> See [Shared Configurations](./SharedConfigurations.md) for filter types, behaviors, and examples.
 
 ---
 
@@ -209,6 +225,7 @@ Below is a **complete example JSON** combining all sections:
 ## 🪧 Additional Notes
 
 - If `infolist.enabled` is `false`, the detail sidebar is hidden.
+- `collapsed_by_default` controls whether the sidebar is initially expanded.
 - `sortable` is optional; default is `false`.
 - The `identifier` must match your data keys exactly.
 - For supported field types, filters, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).

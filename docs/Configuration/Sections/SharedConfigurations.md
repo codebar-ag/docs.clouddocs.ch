@@ -35,12 +35,35 @@ The `filters` array in `index.table` is **supported for all index tables**, rega
 ]
 ```
 
+### Example with Manual Options
+
+```json
+"filters": [
+  {
+    "type": "select",
+    "label": "Status",
+    "options": [
+      "Open": "Open",
+      "In_Progress": "In Progress",
+      "Closed": "Closed"
+    ],
+    "multiple": false,
+    "identifier": "STATUS"
+  }
+]
+```
+
+
+This does not support translations, so use plain strings.
+
 ### Behavior
 
 ✅ **Select Filters**
 - If `multiple` is `true`, users can pick multiple options.
-- If `options` is omitted, unique values are detected automatically.
 - If `default` is provided, the filter is pre-filled.
+- If `options` is omitted, unique values are detected automatically using the `identifier`.
+- When using manual `options`, the left side is the value used to filter, and the right side is the label displayed in the dropdown.
+- Manual `options` are case-sensitive so ensure the left side value matches the records' data.
 
 ✅ **Date Filters**
 - Renders a `from` and `to` date range picker.
@@ -56,6 +79,10 @@ The `filters` array in `index.table` is **supported for all index tables**, rega
 |--------------|--------------------------------------------------------|
 | String       | `"label": "Subject"`                                   |
 | Translations | `"label": { "en_CH": "Subject", "de_CH": "Betrteff" }` |
+
+**Supported Languages:**
+- `en_CH` (Swiss-English)
+- `de_CH` (Swiss-German)
 
 **How it works:**
 - The application selects the label matching the user’s locale.

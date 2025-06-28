@@ -27,8 +27,8 @@ Below is the overall structure:
     "subtitle_identifier": "DOCUMENT_TYPE",
     "infolist": {
       "enabled": true,
-      "entries": [ /* Array of infolist fields */ ],
-      "collapsed_by_default": true
+      "collapsed_by_default": true,
+      "entries": [ /* Array of infolist fields */ ]
     },
     "form": {
       "collapsed_by_default": true,
@@ -56,6 +56,31 @@ Below is the overall structure:
 ```
 
 ---
+
+## ✨ Top-Level Properties
+
+| Property                             | Type      | Description                                                          |
+|--------------------------------------|-----------|----------------------------------------------------------------------|
+| `show`                               | `object`  | Defines the **detail view configuration** for individual records.    |
+| `show.title_identifier`              | `string`  | Field used as the main title in the detail view.                     |
+| `show.subtitle_identifier`           | `string`  | Field used as the subtitle in the detail view.                       |
+| `show.infolist`                      | `object`  | Defines which fields are shown in the sidebar.                       |
+| `show.infolist.enabled`              | `boolean` | Whether the infolist sidebar is shown.                               |
+| `show.infolist.collapsed_by_default` | `boolean` | Whether the infolist starts collapsed.                               |
+| `show.infolist.entries`              | `array`   | Array of fields displayed in the infolist.                           |
+| `show.form`                          | `object`  | Defines editable fields for the detail form.                         |
+| `show.form.collapsed_by_default`     | `boolean` | Whether the form is collapsed initially.                             |
+| `show.form.fields`                   | `array`   | Array of editable form fields.                                       |
+| `show.uploads`                       | `object`  | Defines upload behavior and fields.                                  |
+| `show.uploads.enabled`               | `boolean` | Whether uploads are allowed.                                         |
+| `show.uploads.collapsed_by_default`  | `boolean` | Whether the upload form is collapsed initially.                      |
+| `show.uploads.form`                  | `object`  | Upload form configuration.                                           |
+| `show.uploads.form.fields`           | `array`   | Array of fields shown in the upload form.                            |
+| `show.uploads.rules`                 | `array`   | Validation rules for the uploaded files array.                       |
+| `index`                              | `object`  | Defines the **list view configuration** (table columns and filters). |
+| `index.table`                        | `object`  | Table configuration object.                                          |
+| `index.table.columns`                | `array`   | Array of table columns.                                              |
+| `index.table.filters`                | `array`   | Array of filters applied to the list.                                |
 
 > **Tip:** For supported field types, filters, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).
 
@@ -94,6 +119,14 @@ Defines **table columns** shown in the tasks list.
   }
 ]
 ```
+
+---
+
+## 🗄️ `index.table.filters`
+
+Defines **filters applied to the tasks list**.
+
+> See [Shared Configurations](./SharedConfigurations.md) for filter types, behaviors, and examples.
 
 ---
 
@@ -372,6 +405,7 @@ Below is a **complete example JSON** combining all sections:
 ## 🪧 Additional Notes
 
 - If `uploads.enabled` is `false`, the upload section is hidden.
+- `collapsed_by_default` controls whether sections start collapsed.
 - If a `form` field has validation `rules`, they apply when saving.
 - The `identifier` must exactly match your data keys.
 - For supported field types, filters, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).
