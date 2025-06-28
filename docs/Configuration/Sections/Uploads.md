@@ -6,11 +6,11 @@
     * [JSON File Structure](#json-file-structure)
     * [Properties](#properties)
       * [`form.providable`](#formprovidable)
-  * [Upload Fields Configuration](#upload-fields-configuration)
-    * [Field Properties](#field-properties)
-    * [Supported Field Types](#supported-field-types)
-    * [Upload Fields Example](#upload-fields-example)
-  * [Rules](#rules)
+    * [Upload Fields Configuration](#upload-fields-configuration)
+      * [Field Properties](#field-properties)
+      * [Supported Field Types](#supported-field-types)
+      * [Upload Fields Example](#upload-fields-example)
+    * [Rules](#rules)
   * [Full Example Configuration](#full-example-configuration)
   * [Notes](#notes)
 <!-- TOC -->
@@ -77,11 +77,11 @@ Metadata about how files are stored.
 
 ---
 
-## Upload Fields Configuration
+### Upload Fields Configuration
 
 Defines **metadata fields collected when uploading a file**.
 
-### Field Properties
+#### Field Properties
 
 Each item in `fields` supports:
 
@@ -95,7 +95,7 @@ Each item in `fields` supports:
 
 ---
 
-### Supported Field Types
+#### Supported Field Types
 
 | Type       | Notes                    |
 |------------|--------------------------|
@@ -112,7 +112,7 @@ Each item in `fields` supports:
 
 ---
 
-### Upload Fields Example
+#### Upload Fields Example
 
 ```json
 "fields": [
@@ -169,7 +169,7 @@ Each item in `fields` supports:
 
 ---
 
-## Rules
+### Rules
 
 We use [laravel validation rules](https://laravel.com/docs/12.x/validation#available-validation-rules) to define how uploaded files are validated.
 

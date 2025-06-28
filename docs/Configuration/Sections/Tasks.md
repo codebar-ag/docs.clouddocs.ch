@@ -2,6 +2,7 @@
 
 <!-- TOC -->
 * [Tasks Configuration](#tasks-configuration)
+  * [Index Section Configuration](#index-section-configuration)
   * [Show Section Configuration](#show-section-configuration)
     * [JSON Structure](#json-structure)
     * [Properties](#properties)
@@ -19,7 +20,6 @@
       * [JSON Structure](#json-structure-3)
       * [Properties](#properties-3)
       * [Field Properties](#field-properties-2)
-    * [Index Section Configuration](#index-section-configuration)
   * [Full Example](#full-example)
   * [Notes](#notes)
 <!-- TOC -->
@@ -30,6 +30,12 @@ This guide describes how to **generate and configure the JSON files** used to de
 - Editable fields
 - File upload configuration
 - List (index) columns and filters
+
+---
+
+## Index Section Configuration
+
+- See [Index Configuration](../Index.md) for details on the index section.
 
 ---
 
@@ -195,12 +201,6 @@ Controls **file uploads associated with a task**.
 #### Field Properties
 
 Same as Form.
-
----
-
-### Index Section Configuration
-
-- See [Index Configuration](../Index.md) for details on the index section.
 
 ---
 

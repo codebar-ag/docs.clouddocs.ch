@@ -2,6 +2,7 @@
 
 <!-- TOC -->
 * [Documents Configuration](#documents-configuration)
+  * [Index Section Configuration](#index-section-configuration)
   * [Show Section Configuration](#show-section-configuration)
     * [JSON Structure (`show`)](#json-structure-show)
     * [Properties](#properties)
@@ -9,7 +10,6 @@
     * [Supported Field Types](#supported-field-types)
     * [Example](#example)
     * [Notes](#notes)
-  * [Index Section Configuration](#index-section-configuration)
   * [Full Example](#full-example)
   * [Notes](#notes-1)
 <!-- TOC -->
@@ -18,6 +18,12 @@ This guide describes how to **generate and configure the JSON files** used to de
 
 - Detail view display
 - Table columns and filters
+
+---
+
+## Index Section Configuration
+
+- See [Index Configuration](../Index.md) for details on the index section.
 
 ---
 
@@ -105,12 +111,6 @@ Each item in `entries` supports:
 
 - `identifier` must match your data keys.
 - Labels can be strings or translation objects. [See Translations Guide](../Translations.md).
-
----
-
-## Index Section Configuration
-
-- See [Index Configuration](../Index.md) for details on the index section.
 
 ---
 
