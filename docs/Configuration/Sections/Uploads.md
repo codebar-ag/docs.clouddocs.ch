@@ -87,6 +87,7 @@ Each item in `fields` supports:
 | `textarea` | Multiline Text.          |
 | `integer`  | Numeric.                 |
 | `numeric`  | Numeric.                 |
+| `select`   | Select Dropdown.         |
 | `date`     | Date `d.m.Y`.            |
 | `dateTime` | Date Time `d.m.Y H:i:s`. |
 | `time`     | Time `H:i:s`.            |
@@ -98,34 +99,54 @@ Each item in `fields` supports:
 
 ```json
 "fields": [
-  {
-    "type": "string",
-    "label": "Subject",
-    "rules": ["nullable", "string", "max:254"],
-    "value": true,
-    "identifier": "TITLE"
-  },
-  {
-    "type": "textarea",
-    "label": "Comment",
-    "rules": ["nullable", "string", "max:512"],
-    "value": true,
-    "identifier": "COMMENT"
-  },
-  {
-    "type": "hidden",
-    "label": "Client Key",
-    "rules": [],
-    "value": "{{CLIENT_KEY}}",
-    "identifier": "CLIENT_KEY"
-  },
-  {
-    "type": "hidden",
-    "label": "UUID",
-    "rules": [],
-    "value": "{{UUID}}",
-    "identifier": "UUID"
-  }
+    {
+        "type": "string",
+        "label": "Subject",
+        "rules": ["nullable", "string", "max:254"],
+        "value": true,
+        "identifier": "TITLE"
+    },
+    {
+        "type": "textarea",
+        "label": "Comment",
+        "rules": ["nullable", "string", "max:512"],
+        "value": true,
+        "identifier": "COMMENT"
+    },
+    {
+        "type": "select",
+        "label": {
+            "de_CH": "Date",
+            "en_CH": "Date"
+        },
+        "options": [
+            {"value": "2026", "label": "2026"},
+            {"value": "2025", "label": "2025"},
+            {"value": "2024", "label": "2024"}
+        ],
+        "value": "2025",
+            "rules": [
+            "required",
+            "string",
+            "in:2024,2025,2026",
+            "max:254"
+        ],
+        "identifier": "YEAR"
+    },
+    {
+        "type": "hidden",
+        "label": "Client Identifier",
+        "rules": [],
+        "value": "CLIENT::IDENTIFIER",
+        "identifier": "CLIENT_KEY"
+    },
+    {
+        "type": "hidden",
+        "label": "UUID",
+        "rules": [],
+        "value": "USER_UPLOAD_REQUEST_FILE::UUID",
+        "identifier": "UUID"
+    }
 ]
 ```
 
