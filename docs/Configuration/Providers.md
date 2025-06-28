@@ -1,4 +1,4 @@
-# 📄 Providers Configuration
+# Providers Configuration
 
 This guide describes how to **generate and configure the provider JSON file**, which controls **import behavior**, including file filtering, field selection, and unique identification of items during import.
 
@@ -9,7 +9,7 @@ It allows your application to **automate importing and associating files and met
 
 ---
 
-## 🗂️ JSON File Structure
+## JSON File Structure
 
 Your configuration file follows this structure:
 
@@ -26,7 +26,7 @@ Your configuration file follows this structure:
 
 ---
 
-## ✨ Properties
+## Properties
 
 | Property                        | Type       | Description                                                                                                                                              |
 |---------------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -39,34 +39,33 @@ Your configuration file follows this structure:
 
 ---
 
-## 🛠️ How It Works
+## How It Works
 
 1. **Source Resolution**
-    - The `storage_path` is used to locate and connect to the external system or vault containing files.
+   - The `storage_path` is used to locate and connect to the external system or vault containing files.
 
 2. **File Filtering**
-    - `files_filter_exclude` is applied to skip files with excluded extensions **before any metadata is loaded**.
+   - `files_filter_exclude` is applied to skip files with excluded extensions **before any metadata is loaded**.
 
 3. **Metadata Extraction**
-    - For each file, metadata fields are loaded.
-    - `fields_filter` determines which metadata keys are included.
-    - Any field not listed in `fields_filter` is discarded.
+   - For each file, metadata fields are loaded.
+   - `fields_filter` determines which metadata keys are included.
+   - Any field not listed in `fields_filter` is discarded.
 
 4. **Section Association**
-    - When linking files to sections (e.g., documents, tasks), the system removes any keys in `section_fields_filter_exclude` from the item metadata **only for the section context**.
+   - When linking files to sections (for example, documents or tasks), the system removes any keys in `section_fields_filter_exclude` from the item metadata **only for the section context**.
 
 5. **Identification and Deduplication**
-    - `item_identifier` is used to:
-        - Provide a unique reference to the external data.
+   - `item_identifier` is used to provide a unique reference to the external data.
 
 6. **Target Storage**
-    - `target_identifier` tells the system where to store:
-        - The file itself.
-        - The final metadata.
+   - `target_identifier` tells the system where to store:
+      - The file itself.
+      - The final metadata.
 
 ---
 
-## 🧩 Example Configuration (Tasks)
+## Example Configuration (Tasks)
 
 Below is an example for importing **Tasks**:
 
@@ -99,7 +98,7 @@ Below is an example for importing **Tasks**:
 
 ---
 
-## 📘 Multiple Providers
+## Multiple Providers
 
 You can create separate JSON configuration files for different data sources or purposes. For example:
 
@@ -108,7 +107,7 @@ You can create separate JSON configuration files for different data sources or p
 
 ---
 
-## 📝 Best Practices
+## Best Practices
 
 - **Keep `fields_filter` minimal:** Only include fields you need.
 - **Use clear `item_identifier` values:** Choose stable, unique keys.
@@ -116,12 +115,12 @@ You can create separate JSON configuration files for different data sources or p
 
 ---
 
-## 🛠️ Quick Start Checklist
+## Quick Start Checklist
 
-✅ Create a JSON file for each provider.  
-✅ Define `storage_path` to locate the source files.  
-✅ Add `files_filter_exclude` to skip unwanted files.  
-✅ Specify `fields_filter` with the metadata keys to import.  
-✅ Optionally define `section_fields_filter_exclude`.  
-✅ Set `item_identifier` for uniqueness.  
-✅ Set `target_identifier` for target storage.
+- Create a JSON file for each provider.
+- Define `storage_path` to locate the source files.
+- Add `files_filter_exclude` to skip unwanted files.
+- Specify `fields_filter` with the metadata keys to import.
+- Optionally define `section_fields_filter_exclude`.
+- Set `item_identifier` for uniqueness.
+- Set `target_identifier` for target storage.

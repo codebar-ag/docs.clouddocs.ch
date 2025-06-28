@@ -1,4 +1,4 @@
-# 📝 Tasks Configuration
+# Tasks Configuration
 
 This guide describes how to **generate and configure the JSON files** used to define **tasks sections**, including:
 
@@ -11,7 +11,7 @@ These configurations are typically stored in JSON files and loaded dynamically b
 
 ---
 
-## 🗂️ JSON File Structure
+## JSON File Structure
 
 Your configuration file includes two main sections:
 
@@ -57,7 +57,7 @@ Below is the overall structure:
 
 ---
 
-## ✨ Top-Level Properties
+## Top-Level Properties
 
 | Property                             | Type      | Description                                                          |
 |--------------------------------------|-----------|----------------------------------------------------------------------|
@@ -86,7 +86,7 @@ Below is the overall structure:
 
 ---
 
-## 🖥️ `index.table.columns`
+## `index.table.columns`
 
 Defines **table columns** shown in the tasks list.
 
@@ -122,7 +122,7 @@ Defines **table columns** shown in the tasks list.
 
 ---
 
-## 🗄️ `index.table.filters`
+## `index.table.filters`
 
 Defines **filters applied to the tasks list**.
 
@@ -130,7 +130,7 @@ Defines **filters applied to the tasks list**.
 
 ---
 
-## 📝 `show.infolist.entries`
+## `show.infolist.entries`
 
 Defines **read-only fields** shown in the detail view sidebar.
 
@@ -172,9 +172,9 @@ Defines **read-only fields** shown in the detail view sidebar.
 
 ---
 
-## ✏️ `show.form.fields`
+## `show.form.fields`
 
-Defines **editable fields** when updating a task (e.g., comment).
+Defines **editable fields** when updating a task (for example, a comment).
 
 ### Example
 
@@ -198,7 +198,7 @@ Defines **editable fields** when updating a task (e.g., comment).
 
 ---
 
-## 📤 `show.uploads`
+## `show.uploads`
 
 Controls **file uploads associated with a task**.
 
@@ -261,7 +261,7 @@ Controls **file uploads associated with a task**.
 
 ---
 
-## 🛠️ Full Example Configuration
+## Full Example Configuration
 
 Below is a **complete example JSON** combining all sections:
 
@@ -402,7 +402,7 @@ Below is a **complete example JSON** combining all sections:
 
 ---
 
-## 🪧 Additional Notes
+## Additional Notes
 
 - If `uploads.enabled` is `false`, the upload section is hidden.
 - `collapsed_by_default` controls whether sections start collapsed.

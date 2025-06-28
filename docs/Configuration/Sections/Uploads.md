@@ -1,4 +1,4 @@
-# 📤 Uploads Configuration
+# Uploads Configuration
 
 This guide describes how to **generate and configure the JSON files** that define **file upload behavior** for sections such as tasks and documents.
 
@@ -10,22 +10,22 @@ Uploads configuration controls:
 
 ---
 
-## 🗂️ JSON File Structure
+## JSON File Structure
 
 The upload configuration is defined within the `show.uploads` section of your section JSON.  
 Here is the overall structure:
 
 ```json
 "uploads": {
-"enabled": true,
-"collapsed_by_default": true,
-"form": {
-"providable": {
-"vault_guid": null
-},
-"fields": [ /* Array of upload fields */ ]
-},
-"rules": [ /* Array of validation rules */ ]
+  "enabled": true,
+  "collapsed_by_default": true,
+  "form": {
+    "providable": {
+      "vault_guid": null
+    },
+    "fields": [ /* Array of upload fields */ ]
+  },
+  "rules": [ /* Array of validation rules */ ]
 }
 ```
 
@@ -33,22 +33,22 @@ Each part is explained in detail below.
 
 ---
 
-> **Tip:** For details supported field types, filters, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).
+> **Tip:** For supported field types, filters, label translations, and validation rules, see [Shared Configurations](./SharedConfigurations.md).
 
 ---
 
-## ✨ Top-Level Properties
+## Top-Level Properties
 
 | Property               | Type      | Description                                           |
 |------------------------|-----------|-------------------------------------------------------|
-| `enabled`              | `boolean` | Whether the uploads section is shown.                 |
-| `collapsed_by_default` | `boolean` | Whether the upload form is collapsed initially.       |
-| `form`                 | `object`  | Defines the form fields used when uploading files.    |
-| `rules`                | `array`   | Validation rules applied to the uploaded files array. |
+| `enabled`              | `boolean` | Whether the uploads section is shown.                |
+| `collapsed_by_default` | `boolean` | Whether the upload form is collapsed initially.      |
+| `form`                 | `object`  | Defines the form fields used when uploading files.   |
+| `rules`                | `array`   | Validation rules applied to the uploaded files array.|
 
 ---
 
-## 🗂️ `form.providable`
+## `form.providable`
 
 The `providable` section contains **metadata about how files are stored**.
 
@@ -56,7 +56,7 @@ The `providable` section contains **metadata about how files are stored**.
 |--------------|----------|------------------------------------------------|
 | `vault_guid` | `string` | Optional GUID of the vault to use for storage. |
 
-*Example:*
+Example:
 
 ```json
 "providable": {
@@ -66,7 +66,7 @@ The `providable` section contains **metadata about how files are stored**.
 
 ---
 
-## 📝 `form.fields`
+## `form.fields`
 
 Defines **metadata fields collected when uploading a file**.
 
@@ -80,7 +80,7 @@ Each field must include:
 
 ---
 
-## 🖥️ Upload Field Example
+## Upload Field Example
 
 Example configuration of upload fields:
 
@@ -127,7 +127,7 @@ Example configuration of upload fields:
 
 ---
 
-## ✅ `rules` (Upload Validation Rules)
+## `rules` (Upload Validation Rules)
 
 These validation rules apply to the **whole uploaded files array**.
 
@@ -141,7 +141,7 @@ These validation rules apply to the **whole uploaded files array**.
 ]
 ```
 
-**Behavior:**
+Behavior:
 
 - `required`: User must upload at least one file.
 - `min:1`: Minimum 1 file required.
@@ -149,7 +149,7 @@ These validation rules apply to the **whole uploaded files array**.
 
 ---
 
-## 🛠️ Full Example Configuration
+## Full Example Configuration
 
 Below is a **complete example `uploads` configuration**:
 
@@ -198,7 +198,7 @@ Below is a **complete example `uploads` configuration**:
 
 ---
 
-## 🪧 Additional Notes
+## Additional Notes
 
 - If `enabled` is `false`, the upload UI will not be displayed.
 - All `identifier` values must match your expected data keys.

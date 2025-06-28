@@ -1,4 +1,4 @@
-# 📄 Documents Configuration
+# Documents Configuration
 
 This guide describes how to **generate and configure the JSON files** used to define **document sections**, including:
 
@@ -9,7 +9,7 @@ These configurations are stored as JSON and dynamically loaded by your applicati
 
 ---
 
-## 🗂️ JSON File Structure
+## JSON File Structure
 
 Your configuration file includes two main sections:
 
@@ -40,7 +40,7 @@ Below is the overall structure:
 
 ---
 
-## ✨ Top-Level Properties
+## Top-Level Properties
 
 | Property                             | Type      | Description                                                          |
 |--------------------------------------|-----------|----------------------------------------------------------------------|
@@ -60,7 +60,7 @@ Below is the overall structure:
 
 ---
 
-## 🖥️ `index.table.columns`
+## `index.table.columns`
 
 Defines **table columns** shown in the documents list.
 
@@ -94,7 +94,7 @@ Defines **table columns** shown in the documents list.
 
 ---
 
-## 🗄️ `index.table.filters`
+## `index.table.filters`
 
 Defines **filters applied to the document list**.
 
@@ -102,7 +102,7 @@ Defines **filters applied to the document list**.
 
 ---
 
-## 📝 `show.infolist.entries`
+## `show.infolist.entries`
 
 Defines **read-only fields shown in the detail view** of a document.
 
@@ -139,7 +139,7 @@ Defines **read-only fields shown in the detail view** of a document.
 
 ---
 
-## 🛠️ Full Example Configuration
+## Full Example Configuration
 
 Below is a **complete example JSON** combining all sections:
 
@@ -222,7 +222,7 @@ Below is a **complete example JSON** combining all sections:
 
 ---
 
-## 🪧 Additional Notes
+## Additional Notes
 
 - If `infolist.enabled` is `false`, the detail sidebar is hidden.
 - `collapsed_by_default` controls whether the sidebar is initially expanded.
