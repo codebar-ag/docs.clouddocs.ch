@@ -11,7 +11,7 @@ nav:
           - Documents: Configuration/Sections/Documents.md
           - Tasks: Configuration/Sections/Tasks.md
           - Uploads: Configuration/Sections/Uploads.md
-          - SharedConfigurations: Configuration/Sections/SharedConfigurations.md
+      - Translations: Configuration/Translations.md
 
 
 theme:
