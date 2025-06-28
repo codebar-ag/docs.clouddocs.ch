@@ -1,5 +1,19 @@
 # Uploads Configuration
 
+<!-- TOC -->
+* [Uploads Configuration](#uploads-configuration)
+  * [JSON File Structure](#json-file-structure)
+  * [Properties](#properties)
+* [`form.providable`](#formprovidable)
+* [Upload Fields Configuration](#upload-fields-configuration)
+  * [Field Properties](#field-properties)
+  * [Supported Field Types](#supported-field-types)
+  * [Upload Fields Example](#upload-fields-example)
+* [Rules](#rules)
+* [Full Example Configuration](#full-example-configuration)
+* [Additional Notes](#additional-notes)
+<!-- TOC -->
+
 This guide describes how to **generate and configure the JSON files** that define **file upload behavior** for sections such as tasks and documents.
 
 Uploads configuration controls:
@@ -10,7 +24,9 @@ Uploads configuration controls:
 
 ---
 
-## JSON File Structure
+## Uploads Section Configuration
+
+### JSON File Structure
 
 The upload configuration is defined within the `show.uploads` section of your JSON.  
 Here is the overall structure:
@@ -31,7 +47,7 @@ Here is the overall structure:
 
 ---
 
-## Properties
+### Properties
 
 | Property               | Type      | Description                                     |
 |------------------------|-----------|-------------------------------------------------|
@@ -42,7 +58,7 @@ Here is the overall structure:
 
 ---
 
-# `form.providable`
+## `form.providable`
 
 Metadata about how files are stored.
 
@@ -60,11 +76,11 @@ Metadata about how files are stored.
 
 ---
 
-# Upload Fields Configuration
+## Upload Fields Configuration
 
 Defines **metadata fields collected when uploading a file**.
 
-## Field Properties
+### Field Properties
 
 Each item in `fields` supports:
 
@@ -78,7 +94,7 @@ Each item in `fields` supports:
 
 ---
 
-## Supported Field Types
+### Supported Field Types
 
 | Type       | Notes                    |
 |------------|--------------------------|
@@ -95,7 +111,7 @@ Each item in `fields` supports:
 
 ---
 
-## Upload Fields Example
+### Upload Fields Example
 
 ```json
 "fields": [
@@ -152,12 +168,12 @@ Each item in `fields` supports:
 
 ---
 
-# Rules
+## Rules
 
 We use [laravel validation rules](https://laravel.com/docs/12.x/validation#available-validation-rules) to define how uploaded files are validated.
 
 
-# Full Example Configuration
+## Full Example Configuration
 
 ```json
 {
@@ -226,7 +242,7 @@ We use [laravel validation rules](https://laravel.com/docs/12.x/validation#avail
 
 ---
 
-# Additional Notes
+## Notes
 
 - If `enabled` is `false`, the upload UI will not be displayed.
 - All `identifier` values must match your data keys exactly.

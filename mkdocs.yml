@@ -12,6 +12,7 @@ nav:
           - Tasks: Configuration/Sections/Tasks.md
           - Uploads: Configuration/Sections/Uploads.md
       - Translations: Configuration/Translations.md
+      - Index: Configuration/Index.md
 
 
 theme:
