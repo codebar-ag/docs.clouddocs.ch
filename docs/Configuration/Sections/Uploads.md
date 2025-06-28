@@ -174,7 +174,7 @@ Each item in `fields` supports:
 We use [laravel validation rules](https://laravel.com/docs/12.x/validation#available-validation-rules) to define how uploaded files are validated.
 
 
-## Full Example Configuration
+## Full Example
 
 ```json
 {
