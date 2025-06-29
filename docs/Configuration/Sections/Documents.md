@@ -127,7 +127,10 @@ Each item in `entries` supports:
       "entries": [
         {
           "type": "date",
-          "label": "Date",
+          "label": {
+            "de_CH": "Date",
+            "en_CH": "Date"
+          },
           "identifier": "DOCUMENT_DATE"
         },
         {
@@ -149,7 +152,10 @@ Each item in `entries` supports:
         },
         {
           "type": "date",
-          "label": "Date",
+          "label": {
+            "de_CH": "Date",
+            "en_CH": "Date"
+          },
           "sortable": false,
           "identifier": "DOCUMENT_DATE"
         }
