@@ -169,6 +169,36 @@ Each item in `entries` supports:
           "multiple": true
         },
         {
+          "type": "select",
+          "label": "Month",
+          "identifier": "MONTH",
+          "options": [
+            {
+              "value": "jan",
+              "label": {
+                "de_CH": "Januar",
+                "en_CH": "January"
+              }
+            },
+            {
+              "value": "feb",
+              "label": {
+                "de_CH": "Februar",
+                "en_CH": "February"
+              }
+            },
+            {
+              "value": "march",
+              "label": {
+                "de_CH": "Marsch",
+                "en_CH": "March"
+              }
+            }
+          ],
+          "default": ["jan", "feb"],
+          "multiple": true
+        },
+        {
           "type": "date",
           "label": "Date",
           "identifier": "DOCUMENT_DATE",
