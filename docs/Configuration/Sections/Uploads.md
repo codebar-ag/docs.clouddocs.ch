@@ -11,7 +11,7 @@
       * [Supported Field Types](#supported-field-types)
       * [Upload Fields Example](#upload-fields-example)
     * [Rules](#rules)
-  * [Full Example Configuration](#full-example-configuration)
+  * [Full Example](#full-example)
   * [Notes](#notes)
 <!-- TOC -->
 
@@ -133,20 +133,30 @@ Each item in `fields` supports:
     {
         "type": "select",
         "label": {
-            "de_CH": "Date",
-            "en_CH": "Date"
+            "de_CH": "Type",
+            "en_CH": "Type"
         },
         "options": [
-            {"value": "2026", "label": "2026"},
-            {"value": "2025", "label": "2025"},
-            {"value": "2024", "label": "2024"}
+            {
+              "value": "cv",
+              "label": {
+                "de_CH": "Lebenslauf",
+                "en_CH": "CV"
+              }
+            },
+            {
+              "value": "cover-letter",
+              "label": {
+                "de_CH": "Anschreiben",
+                "en_CH": "Cover Letter"
+              }
+            }
         ],
-        "value": "2025",
-            "rules": [
+        "value": "cv",
+        "rules": [
             "required",
             "string",
-            "in:2024,2025,2026",
-            "max:254"
+            "in:cv,cover-letter",
         ],
         "identifier": "YEAR"
     },
