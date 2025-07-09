@@ -179,6 +179,48 @@ Each item in `fields` supports:
 
 ---
 
+### M-Files: Data Type
+For M-Files, you must specify the data_type property in your form or metadata configuration. This defines how the data will be stored and interpreted within the system.
+
+| Value | Member             |
+|-------|--------------------|
+| 0     | Uninitialized      |
+| 1     | Text               |
+| 2     | Integer            |
+| 3     | Floating           |
+| 5     | Date               |
+| 6     | Time               |
+| 7     | Timestamp          |
+| 8     | Boolean            |
+| 9     | Lookup             |
+| 10    | MultiSelectLookup  |
+| 11    | Integer64          |
+| 12    | FILETIME           |
+| 13    | MultiLineText      |
+| 14    | ACL    
+
+#### Example
+```json
+"fields": [
+    {
+        "data_type": 1,
+        "type": "string",
+        "label": "Subject",
+        "rules": ["nullable", "string", "max:254"],
+        "value": true,
+        "identifier": "TITLE"
+    },
+    {
+        "data_type": 13,
+        "type": "textarea",
+        "label": "Comment",
+        "rules": ["nullable", "string", "max:512"],
+        "value": true,
+        "identifier": "COMMENT"
+    }
+]
+```
+
 ### Rules
 
 We use [laravel validation rules](https://laravel.com/docs/12.x/validation#available-validation-rules) to define how uploaded files are validated.
