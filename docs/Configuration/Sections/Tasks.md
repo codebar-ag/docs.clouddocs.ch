@@ -103,6 +103,7 @@ Each item in `entries` supports:
 | `type`       | `string`             | Field type (see **Supported Field Types**). |
 | `label`      | `string` or `object` | Field label (string or translations).       |
 | `identifier` | `string`             | Field key that identifies the field.        |
+| `order`      | `integer`            | Display order (1 = first, higher numbers = lower priority). |
 
 ---
 
@@ -118,6 +119,10 @@ Each item in `entries` supports:
 | `date`     | Date `d.m.Y`.            |
 | `dateTime` | Date Time `d.m.Y H:i:s`. |
 | `time`     | Time `H:i:s`.            |
+
+---
+
+**Note:** `order` determines the display order: 1 is ordered first, higher numbers appear lower in the list.
 
 ---
 
@@ -156,12 +161,17 @@ Each item in `fields` supports:
 | `identifier` | `string`              | Unique field key.                           |
 | `rules`      | `array`               | Validation rules.                           |
 | `value`      | `string` or `boolean` | Default value or autofill flag.             |
+| `order`      | `integer`             | Display order (1 = first, higher numbers = lower priority). |
 
 ---
 
 #### Supported Field Types
 
 Same as Infolist.
+
+---
+
+**Note:** `order` determines the display order: 1 is ordered first, higher numbers appear lower in the list.
 
 ---
 
@@ -204,6 +214,10 @@ Same as Form.
 
 ---
 
+**Note:** `order` determines the display order: 1 is ordered first, higher numbers appear lower in the list.
+
+---
+
 ## Full Example
 
 ```json
@@ -221,12 +235,14 @@ Same as Form.
             "de_CH": "Date",
             "en_CH": "Date"
           },
-          "identifier": "DOCUMENT_DATE"
+          "identifier": "DOCUMENT_DATE",
+          "order": 1
         },
         {
           "type": "string",
           "label": "Author",
-          "identifier": "AUTHOR"
+          "identifier": "AUTHOR",
+          "order": 2
         }
       ]
     },
@@ -237,7 +253,8 @@ Same as Form.
           "type": "text",
           "label": "Description",
           "identifier": "DESCRIPTION",
-          "rules": ["required"]
+          "rules": ["required"],
+          "order": 1
         }
       ]
     },
@@ -252,7 +269,8 @@ Same as Form.
           {
             "type": "file",
             "label": "Upload File",
-            "identifier": "UPLOAD_FILE"
+            "identifier": "UPLOAD_FILE",
+            "order": 1
           }
         ]
       },
@@ -266,7 +284,8 @@ Same as Form.
           "type": "string",
           "label": "Type",
           "sortable": true,
-          "identifier": "DOCUMENT_TYPE"
+          "identifier": "DOCUMENT_TYPE",
+          "order": 1
         },
         {
           "type": "date",
@@ -275,7 +294,8 @@ Same as Form.
             "en_CH": "Date"
           },
           "sortable": false,
-          "identifier": "DOCUMENT_DATE"
+          "identifier": "DOCUMENT_DATE",
+          "order": 2
         }
       ],
       "filters": [
@@ -284,13 +304,15 @@ Same as Form.
           "label": "Type",
           "identifier": "DOCUMENT_TYPE",
           "default": ["Contract"],
-          "multiple": true
+          "multiple": true,
+          "order": 1
         },
         {
           "type": "date",
           "label": "Date",
           "identifier": "DOCUMENT_DATE",
-          "default": { "from": "2022-01-01", "to": "2022-12-31" }
+          "default": { "from": "2022-01-01", "to": "2022-12-31" },
+          "order": 2
         }
       ]
     }

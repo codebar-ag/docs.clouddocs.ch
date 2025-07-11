@@ -92,6 +92,7 @@ Each item in `fields` supports:
 | `identifier` | `string`              | Unique field key.                           |
 | `rules`      | `array`               | Validation rules applied to the field.      |
 | `value`      | `string` or `boolean` | Default value or `true` to auto-fill.       |
+| `order`      | `integer`             | Display order (1 = first, higher numbers = lower priority). |
 
 ---
 
@@ -112,6 +113,10 @@ Each item in `fields` supports:
 
 ---
 
+**Note:** `order` determines the display order: 1 is ordered first, higher numbers appear lower in the list.
+
+---
+
 #### Upload Fields Example
 
 ```json
@@ -121,14 +126,16 @@ Each item in `fields` supports:
         "label": "Subject",
         "rules": ["nullable", "string", "max:254"],
         "value": true,
-        "identifier": "TITLE"
+        "identifier": "TITLE",
+        "order": 1
     },
     {
         "type": "textarea",
         "label": "Comment",
         "rules": ["nullable", "string", "max:512"],
         "value": true,
-        "identifier": "COMMENT"
+        "identifier": "COMMENT",
+        "order": 2
     },
     {
         "type": "select",
@@ -158,21 +165,24 @@ Each item in `fields` supports:
             "string",
             "in:cv,cover-letter",
         ],
-        "identifier": "YEAR"
+        "identifier": "YEAR",
+        "order": 3
     },
     {
         "type": "hidden",
         "label": "Client Identifier",
         "rules": [],
         "value": "CLIENT::IDENTIFIER",
-        "identifier": "CLIENT_KEY"
+        "identifier": "CLIENT_KEY",
+        "order": 4
     },
     {
         "type": "hidden",
         "label": "UUID",
         "rules": [],
         "value": "USER_UPLOAD_REQUEST_FILE::UUID",
-        "identifier": "UUID"
+        "identifier": "UUID",
+        "order": 5
     }
 ]
 ```
@@ -251,7 +261,8 @@ We use [laravel validation rules](https://laravel.com/docs/12.x/validation#avail
             "in:2024,2025,2026",
             "max:254"
           ],
-          "identifier": "YEAR"
+          "identifier": "YEAR",
+          "order": 1
         },
         {
           "type": "textarea",
@@ -264,21 +275,24 @@ We use [laravel validation rules](https://laravel.com/docs/12.x/validation#avail
             "string",
             "max:756"
           ],
-          "identifier": "DESCRIPTION"
+          "identifier": "DESCRIPTION",
+          "order": 2
         },
         {
           "type": "hidden",
           "label": "Client Identifier",
           "rules": [],
           "value": "CLIENT::IDENTIFIER",
-          "identifier": "CLIENT_KEY"
+          "identifier": "CLIENT_KEY",
+          "order": 3
         },
         {
           "type": "hidden",
           "label": "UUID",
           "rules": [],
           "value": "USER_UPLOAD_REQUEST_FILE::UUID",
-          "identifier": "UUID"
+          "identifier": "UUID",
+          "order": 4
         }
       ]
     },
@@ -300,3 +314,4 @@ We use [laravel validation rules](https://laravel.com/docs/12.x/validation#avail
 - If `enabled` is `false`, the upload UI will not be displayed.
 - All `identifier` values must match your data keys exactly.
 - Labels can be strings or translation objects. [See Translations Guide](../Translations.md).
+- `order` determines the display order: 1 is ordered first, higher numbers appear lower in the list.
