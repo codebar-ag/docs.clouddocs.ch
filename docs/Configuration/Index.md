@@ -56,6 +56,7 @@ Each item in `columns` supports:
 | `label`      | `string` or `object` | Field label (string or translations).           |
 | `identifier` | `string`             | Unique field key.                               |
 | `sortable`   | `boolean`            | Whether the field can be sorted.                |
+| `order`      | `integer`            | Display order (1 = first, higher numbers = lower priority). |
 
 ---
 
@@ -81,13 +82,15 @@ Each item in `columns` supports:
     "type": "string",
     "label": "Type",
     "sortable": true,
-    "identifier": "DOCUMENT_TYPE"
+    "identifier": "DOCUMENT_TYPE",
+    "order": 1
   },
   {
     "type": "date",
     "label": "Date",
     "sortable": false,
-    "identifier": "DOCUMENT_DATE"
+    "identifier": "DOCUMENT_DATE",
+    "order": 2
   }
 ]
 ```
@@ -98,6 +101,7 @@ Each item in `columns` supports:
 
 - `sortable` is optional.
 - `identifier` must match data keys.
+- `order` determines the display order: 1 is ordered first, higher numbers appear lower in the list.
 
 ---
 
@@ -123,6 +127,7 @@ Each item in `filters` supports:
 | `multiple`   | `boolean`               | Allow multiple selection.                                                                                        |
 | `options`    | `object` or undefinable | Options for the *select filter only* when not used, the select filter will auto-fill with data from the database |
 | `default`    | `array` or `string`     | Default values.                                                                                                  |
+| `order`      | `integer`               | Display order (1 = first, higher numbers = lower priority).                                                      |
 
 ---
 
@@ -144,7 +149,8 @@ Each item in `filters` supports:
     "label": "Type",
     "identifier": "DOCUMENT_TYPE",
     "default": ["Contract"],
-    "multiple": false
+    "multiple": false,
+    "order": 1
   },
   {
     "type": "select",
@@ -155,7 +161,8 @@ Each item in `filters` supports:
       "Contract": "Contract",
       "Agreement": "Agreement",
     },
-    "multiple": true
+    "multiple": true,
+    "order": 2
   },
   {
     "type": "date",
@@ -164,7 +171,8 @@ Each item in `filters` supports:
     "default": {
       "from": "2022-01-01",
       "to": "2022-12-31"
-    }
+    },
+    "order": 3
   }
 ]
 ```
@@ -177,3 +185,4 @@ Each item in `filters` supports:
 - `options` is optional for `select` filters; if not provided, it will auto-fill from the database.
 - `multiple` allows selecting multiple values in the filter.
 - `default` can be a single value or an array for multiple selections or an object with `from` and `to` for date ranges.
+- `order` determines the display order: 1 is ordered first, higher numbers appear lower in the list.

@@ -70,6 +70,7 @@ Each item in `entries` supports:
 | `type`       | `string`             | Field type (see **Supported Field Types**). |
 | `label`      | `string` or `object` | Label (string or translations).             |
 | `identifier` | `string`             | Field key that identifies the field.        |
+| `order`      | `integer`            | Display order (1 = first, higher numbers = lower priority). |
 
 ---
 
@@ -95,12 +96,14 @@ Each item in `entries` supports:
   {
     "type": "date",
     "label": "Date",
-    "identifier": "DOCUMENT_DATE"
+    "identifier": "DOCUMENT_DATE",
+    "order": 1
   },
   {
     "type": "string",
     "label": "Subject",
-    "identifier": "TITLE"
+    "identifier": "TITLE",
+    "order": 2
   }
 ]
 ```
@@ -111,6 +114,7 @@ Each item in `entries` supports:
 
 - `identifier` must match your data keys.
 - Labels can be strings or translation objects. [See Translations Guide](../Translations.md).
+- `order` determines the display order: 1 is ordered first, higher numbers appear lower in the list.
 
 ---
 
@@ -131,12 +135,14 @@ Each item in `entries` supports:
             "de_CH": "Date",
             "en_CH": "Date"
           },
-          "identifier": "DOCUMENT_DATE"
+          "identifier": "DOCUMENT_DATE",
+          "order": 1
         },
         {
           "type": "string",
           "label": "Subject",
-          "identifier": "TITLE"
+          "identifier": "TITLE",
+          "order": 2
         }
       ]
     }
@@ -148,7 +154,8 @@ Each item in `entries` supports:
           "type": "string",
           "label": "Type",
           "sortable": true,
-          "identifier": "DOCUMENT_TYPE"
+          "identifier": "DOCUMENT_TYPE",
+          "order": 1
         },
         {
           "type": "date",
@@ -157,7 +164,8 @@ Each item in `entries` supports:
             "en_CH": "Date"
           },
           "sortable": false,
-          "identifier": "DOCUMENT_DATE"
+          "identifier": "DOCUMENT_DATE",
+          "order": 2
         }
       ],
       "filters": [
@@ -166,7 +174,8 @@ Each item in `entries` supports:
           "label": "Type",
           "identifier": "DOCUMENT_TYPE",
           "default": ["Contract"],
-          "multiple": true
+          "multiple": true,
+          "order": 1
         },
         {
           "type": "select",
@@ -196,7 +205,8 @@ Each item in `entries` supports:
             }
           ],
           "default": ["jan", "feb"],
-          "multiple": true
+          "multiple": true,
+          "order": 2
         },
         {
           "type": "date",
@@ -205,7 +215,8 @@ Each item in `entries` supports:
           "default": {
             "from": "2022-01-01",
             "to": "2022-12-31"
-          }
+          },
+          "order": 3
         }
       ]
     }
