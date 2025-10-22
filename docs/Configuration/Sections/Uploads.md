@@ -179,6 +179,18 @@ Each item in `fields` supports:
 
 ---
 
+### DocuWare: Data Type
+For DocuWare, you must specify the data_type property in your form or metadata configuration. This defines how the data will be stored and interpreted within the system.
+
+| Value    | Member   |
+|-----------|----------|
+| string    | Text     |
+| numeric   | Numeric  |
+| decimal   | Decimal  |
+| date      | Date     |
+| datetime  | DateTime |
+| keyword   | Keyword  |
+
 ### M-Files: Data Type
 For M-Files, you must specify the data_type property in your form or metadata configuration. This defines how the data will be stored and interpreted within the system.
 
