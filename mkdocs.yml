@@ -15,6 +15,9 @@ nav:
           - Query: Configuration/Sections/Query.md
       - Translations: Configuration/Translations.md
       - Index: Configuration/Index.md
+  - API:
+      - API: API/API.md
+      - Tenants: API/Tenants.md
 
 
 theme:

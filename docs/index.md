@@ -15,4 +15,8 @@ Welcome to the documentation portal.clouddocs.ch. Use the navigation to explore 
     - [Query](Configuration/Sections/Query.md)
 - [Index](Configuration/Index.md)
 - [Translations](Configuration/Translations.md)
+
+### API
+- [API](API/API.md)
+- [Tenants](API/Tenants.md)
 ---
