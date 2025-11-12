@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="paperflakes AG" /><link rel="canonical" href="https://docs.clouddocs.ch/Configuration/Sections/Tasks/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Tasks - docs.clouddocs.ch</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../hidefooter.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Tasks";
+        var mkdocs_page_input_path = "Configuration/Sections/Tasks.md";
+        var mkdocs_page_url = "/Configuration/Sections/Tasks/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> docs.clouddocs.ch
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Configuration</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../Tenant/">Tenant</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Client/">Client</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Sections</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../Documents/">Documents</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Tasks</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#index-section-configuration">Index Section Configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#show-section-configuration">Show Section Configuration</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#json-structure">JSON Structure</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#properties">Properties</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#infolist-configuration">Infolist Configuration</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#form-configuration">Form Configuration</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#uploads-configuration">Uploads Configuration</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#full-example">Full Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#notes">Notes</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Uploads/">Uploads</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Fields/">Fields</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Query/">Query</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Translations/">Translations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Index/">Index</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../API/API/">API</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../API/Tenants/">Tenants</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">docs.clouddocs.ch</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Configuration</li>
+          <li class="breadcrumb-item">Sections</li>
+      <li class="breadcrumb-item active">Tasks</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="tasks-configuration">Tasks Configuration</h1>
+<!-- TOC -->
+<ul>
+<li><a href="#tasks-configuration">Tasks Configuration</a></li>
+<li><a href="#index-section-configuration">Index Section Configuration</a></li>
+<li><a href="#show-section-configuration">Show Section Configuration</a><ul>
+<li><a href="#json-structure">JSON Structure</a></li>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#infolist-configuration">Infolist Configuration</a></li>
+<li><a href="#json-structure-1">JSON Structure</a></li>
+<li><a href="#properties-1">Properties</a></li>
+<li><a href="#field-properties">Field Properties</a></li>
+<li><a href="#supported-field-types">Supported Field Types</a></li>
+<li><a href="#form-configuration">Form Configuration</a></li>
+<li><a href="#json-structure-2">JSON Structure</a></li>
+<li><a href="#properties-2">Properties</a></li>
+<li><a href="#field-properties-1">Field Properties</a></li>
+<li><a href="#supported-field-types-1">Supported Field Types</a></li>
+<li><a href="#uploads-configuration">Uploads Configuration</a></li>
+<li><a href="#json-structure-3">JSON Structure</a></li>
+<li><a href="#properties-3">Properties</a></li>
+<li><a href="#field-properties-2">Field Properties</a></li>
+</ul>
+</li>
+<li><a href="#full-example">Full Example</a></li>
+<li><a href="#notes">Notes</a></li>
+</ul>
+<!-- TOC -->
+
+<p>This guide describes how to <strong>generate and configure the JSON files</strong> used to define <strong>tasks sections</strong>, including:</p>
+<ul>
+<li>Detail view metadata</li>
+<li>Editable fields</li>
+<li>File upload configuration</li>
+<li>List (index) columns and filters</li>
+</ul>
+<hr />
+<h2 id="index-section-configuration">Index Section Configuration</h2>
+<ul>
+<li>See <a href="../../Index/">Index Configuration</a> for details on the index section.</li>
+</ul>
+<hr />
+<h2 id="show-section-configuration">Show Section Configuration</h2>
+<h3 id="json-structure">JSON Structure</h3>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;show&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;title_identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TITLE&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;subtitle_identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DOCUMENT_TYPE&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;infolist&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* See Infolist Section */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;form&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* See Form Section */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;uploads&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* See Uploads Section */</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr />
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>show</code></td>
+<td><code>object</code></td>
+<td>Detail view configuration.</td>
+</tr>
+<tr>
+<td><code>show.title_identifier</code></td>
+<td><code>string</code></td>
+<td>Field to use as the main title.</td>
+</tr>
+<tr>
+<td><code>show.subtitle_identifier</code></td>
+<td><code>string</code></td>
+<td>Field to use as the subtitle.</td>
+</tr>
+<tr>
+<td><code>show.infolist</code></td>
+<td><code>object</code></td>
+<td>Infolist fields configuration.</td>
+</tr>
+<tr>
+<td><code>show.form</code></td>
+<td><code>object</code></td>
+<td>Editable form fields configuration.</td>
+</tr>
+<tr>
+<td><code>show.uploads</code></td>
+<td><code>object</code></td>
+<td>Upload behavior and fields configuration.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="infolist-configuration">Infolist Configuration</h3>
+<p>Defines <strong>read-only fields shown in the detail view sidebar</strong>.</p>
+<h4 id="json-structure_1">JSON Structure</h4>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;infolist&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;collapsed_by_default&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;entries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="cm">/* Fields */</span><span class="w"> </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr />
+<h4 id="properties_1">Properties</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enabled</code></td>
+<td><code>boolean</code></td>
+<td>Whether the infolist sidebar is shown.</td>
+</tr>
+<tr>
+<td><code>collapsed_by_default</code></td>
+<td><code>boolean</code></td>
+<td>Whether the sidebar starts collapsed.</td>
+</tr>
+<tr>
+<td><code>entries</code></td>
+<td><code>array</code></td>
+<td>Fields displayed in the infolist.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="field-properties">Field Properties</h4>
+<p>Each item in <code>entries</code> supports:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td><code>string</code></td>
+<td>Field type (see <strong>Supported Field Types</strong>).</td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td><code>string</code> or <code>object</code></td>
+<td>Field label (string or translations).</td>
+</tr>
+<tr>
+<td><code>identifier</code></td>
+<td><code>string</code></td>
+<td>Field key that identifies the field.</td>
+</tr>
+<tr>
+<td><code>order</code></td>
+<td><code>integer</code></td>
+<td>Display order (1 = first, higher numbers = lower priority).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="supported-field-types">Supported Field Types</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>string</code></td>
+<td>Text.</td>
+</tr>
+<tr>
+<td><code>text</code></td>
+<td>Text.</td>
+</tr>
+<tr>
+<td><code>textarea</code></td>
+<td>Multiline text.</td>
+</tr>
+<tr>
+<td><code>integer</code></td>
+<td>Numeric.</td>
+</tr>
+<tr>
+<td><code>numeric</code></td>
+<td>Numeric.</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>Date <code>d.m.Y</code>.</td>
+</tr>
+<tr>
+<td><code>dateTime</code></td>
+<td>Date Time <code>d.m.Y H:i:s</code>.</td>
+</tr>
+<tr>
+<td><code>time</code></td>
+<td>Time <code>H:i:s</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Note:</strong> <code>order</code> determines the display order: 1 is ordered first, higher numbers appear lower in the list.</p>
+<hr />
+<h3 id="form-configuration">Form Configuration</h3>
+<p>Defines <strong>editable fields when updating a task</strong>.</p>
+<h4 id="json-structure_2">JSON Structure</h4>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;form&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;collapsed_by_default&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="cm">/* Fields */</span><span class="w"> </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr />
+<h4 id="properties_2">Properties</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>collapsed_by_default</code></td>
+<td><code>boolean</code></td>
+<td>Whether the form is collapsed initially.</td>
+</tr>
+<tr>
+<td><code>fields</code></td>
+<td><code>array</code></td>
+<td>Editable form fields.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="field-properties_1">Field Properties</h4>
+<p>Each item in <code>fields</code> supports:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td><code>string</code></td>
+<td>Field type (see <strong>Supported Field Types</strong>).</td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td><code>string</code> or <code>object</code></td>
+<td>Field label (string or translations).</td>
+</tr>
+<tr>
+<td><code>identifier</code></td>
+<td><code>string</code></td>
+<td>Unique field key.</td>
+</tr>
+<tr>
+<td><code>rules</code></td>
+<td><code>array</code></td>
+<td>Validation rules.</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td><code>string</code> or <code>boolean</code></td>
+<td>Default value or autofill flag.</td>
+</tr>
+<tr>
+<td><code>order</code></td>
+<td><code>integer</code></td>
+<td>Display order (1 = first, higher numbers = lower priority).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="supported-field-types_1">Supported Field Types</h4>
+<p>Same as Infolist.</p>
+<hr />
+<p><strong>Note:</strong> <code>order</code> determines the display order: 1 is ordered first, higher numbers appear lower in the list.</p>
+<hr />
+<h3 id="uploads-configuration">Uploads Configuration</h3>
+<p>Controls <strong>file uploads associated with a task</strong>.</p>
+<h4 id="json-structure_3">JSON Structure</h4>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;uploads&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;collapsed_by_default&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;form&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;providable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;vault_guid&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="cm">/* Upload fields */</span><span class="w"> </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="cm">/* Validation rules */</span><span class="w"> </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr />
+<h4 id="properties_3">Properties</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enabled</code></td>
+<td><code>boolean</code></td>
+<td>Whether uploads are allowed.</td>
+</tr>
+<tr>
+<td><code>collapsed_by_default</code></td>
+<td><code>boolean</code></td>
+<td>Whether the upload form is collapsed initially.</td>
+</tr>
+<tr>
+<td><code>form</code></td>
+<td><code>object</code></td>
+<td>Upload form configuration.</td>
+</tr>
+<tr>
+<td><code>rules</code></td>
+<td><code>array</code></td>
+<td>Validation rules applied to uploaded files.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="field-properties_2">Field Properties</h4>
+<p>Same as Form.</p>
+<hr />
+<p><strong>Note:</strong> <code>order</code> determines the display order: 1 is ordered first, higher numbers appear lower in the list.</p>
+<hr />
+<h2 id="full-example">Full Example</h2>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;show&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;title_identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TITLE&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;subtitle_identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DOCUMENT_TYPE&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;infolist&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;collapsed_by_default&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;entries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;de_CH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Date&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;en_CH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Date&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DOCUMENT_DATE&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Author&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AUTHOR&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;form&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;collapsed_by_default&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Description&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DESCRIPTION&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;required&quot;</span><span class="p">],</span>
+<span class="w">          </span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;uploads&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;collapsed_by_default&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;form&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;providable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;vault_guid&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Upload File&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UPLOAD_FILE&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;file_size:5MB&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;table&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Type&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;sortable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DOCUMENT_TYPE&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;de_CH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Date&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;en_CH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Date&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;sortable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DOCUMENT_DATE&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;filters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;select&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Type&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DOCUMENT_TYPE&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Contract&quot;</span><span class="p">],</span>
+<span class="w">          </span><span class="nt">&quot;multiple&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Date&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DOCUMENT_DATE&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-01-01&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-12-31&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr />
+<h2 id="notes">Notes</h2>
+<ul>
+<li><code>identifier</code> must match your data keys.</li>
+<li>Labels can be strings or translation objects. <a href="../../Translations/">See Translations Guide</a>.</li>
+</ul>
+              
+            </div>
+          </div>
+
+<script>
+  window.Userback = window.Userback || {};
+  Userback.access_token = "A-3B5YbfNHXqezbexpYpZR32Zxb";
+  (function(d) {
+    var s = d.createElement('script');s.async = true;s.src = 'https://static.userback.io/widget/v1.js';(d.head || d.body).appendChild(s);
+  })(document);
+</script> 
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Documents/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Uploads/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../js/userback.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

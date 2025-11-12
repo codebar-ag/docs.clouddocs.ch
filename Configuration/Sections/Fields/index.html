@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="paperflakes AG" /><link rel="canonical" href="https://docs.clouddocs.ch/Configuration/Sections/Fields/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Fields - docs.clouddocs.ch</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../hidefooter.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Fields";
+        var mkdocs_page_input_path = "Configuration/Sections/Fields.md";
+        var mkdocs_page_url = "/Configuration/Sections/Fields/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> docs.clouddocs.ch
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Configuration</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../Tenant/">Tenant</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Client/">Client</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Sections</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../Documents/">Documents</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Tasks/">Tasks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Uploads/">Uploads</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Fields</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#injected-field-values">Injected Field Values</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#query-injected-field-values-matrix">Query - Injected Field Values Matrix</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sections-injected-field-values-matrix">Sections - Injected Field Values Matrix</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#developer-notes">Developer Notes</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Query/">Query</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Translations/">Translations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Index/">Index</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../API/API/">API</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../API/Tenants/">Tenants</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">docs.clouddocs.ch</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Configuration</li>
+          <li class="breadcrumb-item">Sections</li>
+      <li class="breadcrumb-item active">Fields</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="fields">Fields</h1>
+<!-- TOC -->
+<ul>
+<li><a href="#injected-field-values">Injected Field Values</a></li>
+<li><a href="#query---injected-field-values-matrix">Query - Injected Field Values Matrix</a></li>
+<li><a href="#sections---injected-field-values-matrix">Sections - Injected Field Values Matrix</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#developer-notes">Developer Notes</a></li>
+</ul>
+<!-- TOC -->
+
+<h2 id="injected-field-values">Injected Field Values</h2>
+<p>Injected field values are special identifiers that can be used in field configurations to automatically populate values from the system context. These values are resolved at runtime and provide access to various system entities like items, clients, users, and upload requests.</p>
+<h3 id="query-injected-field-values-matrix">Query - Injected Field Values Matrix</h3>
+<p>The following table shows injected field values available for <strong>building queries</strong> in all sections:</p>
+<table>
+<thead>
+<tr>
+<th>Identifier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CLIENT::UUID</code></td>
+<td>Client UUID</td>
+</tr>
+<tr>
+<td><code>CLIENT::IDENTIFIER</code></td>
+<td>Client Identifier</td>
+</tr>
+<tr>
+<td><code>CLIENT::IDENTIFIER_INTERNAL</code></td>
+<td>Client Identifier Internal</td>
+</tr>
+<tr>
+<td><code>USER::UUID</code></td>
+<td>User UUID</td>
+</tr>
+<tr>
+<td><code>USER::NAME</code></td>
+<td>User Name</td>
+</tr>
+<tr>
+<td><code>USER::EMAIL</code></td>
+<td>User Email</td>
+</tr>
+<tr>
+<td><code>USER_CLIENT::IDENTIFIER</code></td>
+<td>User Client Identifier</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example - Using Injected Field Values in Queries:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;filters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USER::EMAIL&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;operator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WHERE&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;attribute&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DOCU_WARE_USER_EMAIL&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="sections-injected-field-values-matrix">Sections - Injected Field Values Matrix</h3>
+<p>The following table shows injected field values available for use in <strong>section field configurations</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Identifier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ITEM::UUID</code></td>
+<td>Item UUID</td>
+</tr>
+<tr>
+<td><code>ITEM::SOURCE_DOC_ID</code></td>
+<td>Item Source Doc ID</td>
+</tr>
+<tr>
+<td><code>ITEM::DOC_ID</code></td>
+<td>Item Doc ID</td>
+</tr>
+<tr>
+<td><code>CLIENT::UUID</code></td>
+<td>Client UUID</td>
+</tr>
+<tr>
+<td><code>CLIENT::IDENTIFIER</code></td>
+<td>Client Identifier</td>
+</tr>
+<tr>
+<td><code>CLIENT::IDENTIFIER_INTERNAL</code></td>
+<td>Client Identifier Internal</td>
+</tr>
+<tr>
+<td><code>USER::UUID</code></td>
+<td>User UUID</td>
+</tr>
+<tr>
+<td><code>USER::NAME</code></td>
+<td>User Name</td>
+</tr>
+<tr>
+<td><code>USER::EMAIL</code></td>
+<td>User Email</td>
+</tr>
+<tr>
+<td><code>USER_CLIENT::IDENTIFIER</code></td>
+<td>User Client Identifier</td>
+</tr>
+<tr>
+<td><code>USER_UPLOAD_REQUEST::UUID</code></td>
+<td>User Upload Request UUID</td>
+</tr>
+<tr>
+<td><code>USER_TASK_REQUEST::UUID</code></td>
+<td>User Task Request UUID</td>
+</tr>
+<tr>
+<td><code>USER_WORKFLOW_REQUEST::UUID</code></td>
+<td>User Workflow Request UUID</td>
+</tr>
+<tr>
+<td><code>USER_REQUEST_FILE::UUID</code></td>
+<td>User Request File UUID</td>
+</tr>
+<tr>
+<td><code>USER_REQUEST_FILE::NAME</code></td>
+<td>User Request File Name</td>
+</tr>
+<tr>
+<td><code>USER_REQUEST_FILE::NAME_WITHOUT_EXTENSION</code></td>
+<td>User Request File Name Without Extension</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example - Using Injected Field Values in Sections:</strong></p>
+<p>Injected field values can be used in the <code>value</code> property of field configurations. They are typically used in hidden fields or as default values to automatically populate fields with system context data.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hidden&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;de_CH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Kunde Identifikation&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;en_CH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Client Identifier&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CLIENT::IDENTIFIER&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;data_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CLIENT_KEY&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;injected&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><strong>Note:</strong> When using injected field values, set the <code>value</code> property to the identifier string (e.g., <code>"CLIENT::IDENTIFIER"</code>). <strong>It is crucial to set <code>injected: true</code></strong> - otherwise the system will skip the injected field value. The system will automatically resolve and inject the actual value at runtime when <code>injected: true</code> is set.</p>
+<h2 id="developer-notes">Developer Notes</h2>
+<p>The logic to maintain injected field values is within the <code>InjectedFieldService</code> class:</p>
+<div class="codehilite"><pre><span></span><code><span class="x">namespace App\Services;</span>
+
+<span class="x">class InjectedFieldService {}</span>
+</code></pre></div>
+
+<p>The injected field value identifiers are defined in the <code>InjectedFieldValueEnum</code> enum:</p>
+<div class="codehilite"><pre><span></span><code><span class="x">namespace App\Enums\App;</span>
+
+<span class="x">enum InjectedFieldValueEnum: string {}</span>
+</code></pre></div>
+              
+            </div>
+          </div>
+
+<script>
+  window.Userback = window.Userback || {};
+  Userback.access_token = "A-3B5YbfNHXqezbexpYpZR32Zxb";
+  (function(d) {
+    var s = d.createElement('script');s.async = true;s.src = 'https://static.userback.io/widget/v1.js';(d.head || d.body).appendChild(s);
+  })(document);
+</script> 
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Uploads/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Query/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../js/userback.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
