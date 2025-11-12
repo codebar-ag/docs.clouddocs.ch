@@ -11,6 +11,8 @@ Welcome to the documentation portal.clouddocs.ch. Use the navigation to explore 
     - [Documents](Configuration/Sections/Documents.md)
     - [Tasks](Configuration/Sections/Tasks.md)
     - [Uploads](Configuration/Sections/Uploads.md)
+    - [Fields](Configuration/Sections/Fields.md)
+    - [Query](Configuration/Sections/Query.md)
 - [Index](Configuration/Index.md)
 - [Translations](Configuration/Translations.md)
 ---
