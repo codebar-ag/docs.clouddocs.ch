@@ -11,6 +11,8 @@ nav:
           - Documents: Configuration/Sections/Documents.md
           - Tasks: Configuration/Sections/Tasks.md
           - Uploads: Configuration/Sections/Uploads.md
+          - Fields: Configuration/Sections/Fields.md
+          - Query: Configuration/Sections/Query.md
       - Translations: Configuration/Translations.md
       - Index: Configuration/Index.md
 
@@ -23,7 +25,7 @@ theme:
     - scheme: default
       primary: indigo
       accent: indigo
-  copyright: "© paperflakes AG"
+  copyright: "© codebar Solutions AG"
 
 markdown_extensions:
   - admonition
@@ -31,6 +33,9 @@ markdown_extensions:
 
 extra_css:
   - hidefooter.css
+
+extra_javascript:
+  - js/userback.js
 
 docs_dir: docs
 site_dir: site
