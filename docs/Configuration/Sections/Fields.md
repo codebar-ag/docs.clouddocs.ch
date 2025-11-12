@@ -63,11 +63,9 @@ The following table shows injected field values available for use in **section f
 | `USER_REQUEST_FILE::NAME` | User Request File Name |
 | `USER_REQUEST_FILE::NAME_WITHOUT_EXTENSION` | User Request File Name Without Extension |
 
-### Usage
+**Example - Using Injected Field Values in Sections:**
 
 Injected field values can be used in the `value` property of field configurations. They are typically used in hidden fields or as default values to automatically populate fields with system context data.
-
-**Example:**
 
 ```json
 {
